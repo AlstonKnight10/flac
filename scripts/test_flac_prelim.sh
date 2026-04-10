@@ -74,7 +74,7 @@ run_benchmark() {
 
     echo -e "${YELLOW}Testing with $thread_count thread(s)...${NC}"
 
-    enc_time=$(/usr/bin/time -f "%e" sh -c 'flac -'"$thread_count"' "$1" -o "$2" >/dev/null 2>/dev/null' _ "$SRC_WAV" "$out_flac" 2>&1)
+    enc_time=$(/usr/bin/time -f "%e" sh -c 'flac -j'"$thread_count"' "$1" -o "$2" >/dev/null 2>/dev/null' _ "$SRC_WAV" "$out_flac" 2>&1)
     if [ ! -f "$out_flac" ]; then
         echo -e "${RED}Encode failed for thread count $thread_count${NC}"
         return
