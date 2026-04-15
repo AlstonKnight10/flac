@@ -113,3 +113,9 @@ devenv.local.yaml
 
 # pre-commit
 .pre-commit-config.yaml
+
+# Benchmark harness: keep test/analyze sources, ignore everything else
+/bench/*
+!/bench/README.md
+!/bench/run_bench.sh
+!/bench/analyze.py

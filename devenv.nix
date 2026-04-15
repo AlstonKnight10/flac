@@ -8,6 +8,7 @@
   languages = {
     c.enable = true;
     cplusplus.enable = true;
+    python.enable = true;
   };
 
   enterShell = ''

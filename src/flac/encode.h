@@ -21,7 +21,7 @@
 #define flac__encode_h
 
 #ifdef HAVE_CONFIG_H
-#  include <config.h>
+#include <config.h>
 #endif
 
 #include "FLAC/metadata.h"
@@ -108,6 +108,7 @@ typedef struct {
 		FLAC__bool disable_constant_subframes;
 		FLAC__bool disable_fixed_subframes;
 		FLAC__bool disable_verbatim_subframes;
+		int disable_instruction_set;
 		FLAC__bool do_md5;
 	} debug;
 } encode_options_t;

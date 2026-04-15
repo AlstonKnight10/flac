@@ -18,7 +18,7 @@
  */
 
 #ifdef HAVE_CONFIG_H
-#  include <config.h>
+#include <config.h>
 #endif
 
 #include <ctype.h>
@@ -58,9 +58,9 @@
 #if 0
 /*[JEC] was:#if HAVE_GETOPT_LONG*/
 /*[JEC] see flac/include/share/getopt.h as to why the change */
-#  include <getopt.h>
+#include <getopt.h>
 #else
-#  include "share/getopt.h"
+#include "share/getopt.h"
 #endif
 
 static int do_it(void);
@@ -98,90 +98,90 @@ static struct share__option long_options_[] = {
 	/*
 	 * general options
 	 */
-	{ "help"                             , share__no_argument, 0, 'h' },
-	{ "version"                          , share__no_argument, 0, 'v' },
-	{ "decode"                           , share__no_argument, 0, 'd' },
-	{ "analyze"                          , share__no_argument, 0, 'a' },
-	{ "test"                             , share__no_argument, 0, 't' },
-	{ "stdout"                           , share__no_argument, 0, 'c' },
-	{ "silent"                           , share__no_argument, 0, 's' },
-	{ "totally-silent"                   , share__no_argument, 0, 0 },
-	{ "warnings-as-errors"               , share__no_argument, 0, 'w' },
-	{ "force"                            , share__no_argument, 0, 'f' },
-	{ "delete-input-file"                , share__no_argument, 0, 0 },
-	{ "preserve-modtime"                 , share__no_argument, 0, 0 },
-	{ "keep-foreign-metadata"            , share__no_argument, 0, 0 },
-	{ "keep-foreign-metadata-if-present" , share__no_argument, 0, 0 },
-	{ "output-prefix"                    , share__required_argument, 0, 0 },
-	{ "output-name"                      , share__required_argument, 0, 'o' },
-	{ "skip"                             , share__required_argument, 0, 0 },
-	{ "until"                            , share__required_argument, 0, 0 },
-	{ "channel-map"                      , share__required_argument, 0, 0 }, /* undocumented */
+	{ "help", share__no_argument, 0, 'h' },
+	{ "version", share__no_argument, 0, 'v' },
+	{ "decode", share__no_argument, 0, 'd' },
+	{ "analyze", share__no_argument, 0, 'a' },
+	{ "test", share__no_argument, 0, 't' },
+	{ "stdout", share__no_argument, 0, 'c' },
+	{ "silent", share__no_argument, 0, 's' },
+	{ "totally-silent", share__no_argument, 0, 0 },
+	{ "warnings-as-errors", share__no_argument, 0, 'w' },
+	{ "force", share__no_argument, 0, 'f' },
+	{ "delete-input-file", share__no_argument, 0, 0 },
+	{ "preserve-modtime", share__no_argument, 0, 0 },
+	{ "keep-foreign-metadata", share__no_argument, 0, 0 },
+	{ "keep-foreign-metadata-if-present", share__no_argument, 0, 0 },
+	{ "output-prefix", share__required_argument, 0, 0 },
+	{ "output-name", share__required_argument, 0, 'o' },
+	{ "skip", share__required_argument, 0, 0 },
+	{ "until", share__required_argument, 0, 0 },
+	{ "channel-map", share__required_argument, 0, 0 }, /* undocumented */
 
 	/*
 	 * decoding options
 	 */
 	{ "decode-through-errors", share__no_argument, 0, 'F' },
-	{ "cue"                  , share__required_argument, 0, 0 },
+	{ "cue", share__required_argument, 0, 0 },
 	{ "apply-replaygain-which-is-not-lossless", share__optional_argument, 0, 0 }, /* undocumented */
 
 	/*
 	 * encoding options
 	 */
-	{ "cuesheet"                  , share__required_argument, 0, 0 },
-	{ "no-cued-seekpoints"        , share__no_argument, 0, 0 },
-	{ "picture"                   , share__required_argument, 0, 0 },
-	{ "tag"                       , share__required_argument, 0, 'T' },
-	{ "tag-from-file"             , share__required_argument, 0, 0 },
-	{ "compression-level-0"       , share__no_argument, 0, '0' },
-	{ "compression-level-1"       , share__no_argument, 0, '1' },
-	{ "compression-level-2"       , share__no_argument, 0, '2' },
-	{ "compression-level-3"       , share__no_argument, 0, '3' },
-	{ "compression-level-4"       , share__no_argument, 0, '4' },
-	{ "compression-level-5"       , share__no_argument, 0, '5' },
-	{ "compression-level-6"       , share__no_argument, 0, '6' },
-	{ "compression-level-7"       , share__no_argument, 0, '7' },
-	{ "compression-level-8"       , share__no_argument, 0, '8' },
-	{ "compression-level-9"       , share__no_argument, 0, '9' },
-	{ "best"                      , share__no_argument, 0, '8' },
-	{ "fast"                      , share__no_argument, 0, '0' },
-	{ "verify"                    , share__no_argument, 0, 'V' },
-	{ "force-raw-format"          , share__no_argument, 0, 0 },
-	{ "force-aiff-format"         , share__no_argument, 0, 0 },
-	{ "force-rf64-format"         , share__no_argument, 0, 0 },
-	{ "force-wave64-format"       , share__no_argument, 0, 0 },
-	{ "force-legacy-wave-format"  , share__no_argument, 0, 0 },
-	{ "force-extensible-wave-format",share__no_argument,0, 0 },
-	{ "force-aiff-c-none-format"  , share__no_argument, 0, 0 },
-	{ "force-aiff-c-sowt-format"  , share__no_argument, 0, 0 },
-	{ "lax"                       , share__no_argument, 0, 0 },
-	{ "replay-gain"               , share__no_argument, 0, 0 },
-	{ "ignore-chunk-sizes"        , share__no_argument, 0, 0 },
-	{ "seekpoint"                 , share__required_argument, 0, 'S' },
-	{ "padding"                   , share__required_argument, 0, 'P' },
+	{ "cuesheet", share__required_argument, 0, 0 },
+	{ "no-cued-seekpoints", share__no_argument, 0, 0 },
+	{ "picture", share__required_argument, 0, 0 },
+	{ "tag", share__required_argument, 0, 'T' },
+	{ "tag-from-file", share__required_argument, 0, 0 },
+	{ "compression-level-0", share__no_argument, 0, '0' },
+	{ "compression-level-1", share__no_argument, 0, '1' },
+	{ "compression-level-2", share__no_argument, 0, '2' },
+	{ "compression-level-3", share__no_argument, 0, '3' },
+	{ "compression-level-4", share__no_argument, 0, '4' },
+	{ "compression-level-5", share__no_argument, 0, '5' },
+	{ "compression-level-6", share__no_argument, 0, '6' },
+	{ "compression-level-7", share__no_argument, 0, '7' },
+	{ "compression-level-8", share__no_argument, 0, '8' },
+	{ "compression-level-9", share__no_argument, 0, '9' },
+	{ "best", share__no_argument, 0, '8' },
+	{ "fast", share__no_argument, 0, '0' },
+	{ "verify", share__no_argument, 0, 'V' },
+	{ "force-raw-format", share__no_argument, 0, 0 },
+	{ "force-aiff-format", share__no_argument, 0, 0 },
+	{ "force-rf64-format", share__no_argument, 0, 0 },
+	{ "force-wave64-format", share__no_argument, 0, 0 },
+	{ "force-legacy-wave-format", share__no_argument, 0, 0 },
+	{ "force-extensible-wave-format", share__no_argument, 0, 0 },
+	{ "force-aiff-c-none-format", share__no_argument, 0, 0 },
+	{ "force-aiff-c-sowt-format", share__no_argument, 0, 0 },
+	{ "lax", share__no_argument, 0, 0 },
+	{ "replay-gain", share__no_argument, 0, 0 },
+	{ "ignore-chunk-sizes", share__no_argument, 0, 0 },
+	{ "seekpoint", share__required_argument, 0, 'S' },
+	{ "padding", share__required_argument, 0, 'P' },
 #if FLAC__HAS_OGG
-	{ "ogg"                       , share__no_argument, 0, 0 },
-	{ "decode-chained-stream"     , share__no_argument, 0, 0 },
-	{ "serial-number"             , share__required_argument, 0, 0 },
+	{ "ogg", share__no_argument, 0, 0 },
+	{ "decode-chained-stream", share__no_argument, 0, 0 },
+	{ "serial-number", share__required_argument, 0, 0 },
 #endif
-	{ "blocksize"                 , share__required_argument, 0, 'b' },
-	{ "exhaustive-model-search"   , share__no_argument, 0, 'e' },
-	{ "max-lpc-order"             , share__required_argument, 0, 'l' },
-	{ "apodization"               , share__required_argument, 0, 'A' },
-	{ "mid-side"                  , share__no_argument, 0, 'm' },
-	{ "adaptive-mid-side"         , share__no_argument, 0, 'M' },
+	{ "blocksize", share__required_argument, 0, 'b' },
+	{ "exhaustive-model-search", share__no_argument, 0, 'e' },
+	{ "max-lpc-order", share__required_argument, 0, 'l' },
+	{ "apodization", share__required_argument, 0, 'A' },
+	{ "mid-side", share__no_argument, 0, 'm' },
+	{ "adaptive-mid-side", share__no_argument, 0, 'M' },
 	{ "qlp-coeff-precision-search", share__no_argument, 0, 'p' },
-	{ "qlp-coeff-precision"       , share__required_argument, 0, 'q' },
-	{ "rice-partition-order"      , share__required_argument, 0, 'r' },
-	{ "threads"                   , share__required_argument, 0, 'j' },
-	{ "endian"                    , share__required_argument, 0, 0 },
-	{ "channels"                  , share__required_argument, 0, 0 },
-	{ "bps"                       , share__required_argument, 0, 0 },
-	{ "sample-rate"               , share__required_argument, 0, 0 },
-	{ "sign"                      , share__required_argument, 0, 0 },
-	{ "input-size"                , share__required_argument, 0, 0 },
-	{ "error-on-compression-fail" , share__no_argument, 0, 0 },
-	{ "limit-min-bitrate"         , share__no_argument, 0, 0 },
+	{ "qlp-coeff-precision", share__required_argument, 0, 'q' },
+	{ "rice-partition-order", share__required_argument, 0, 'r' },
+	{ "threads", share__required_argument, 0, 'j' },
+	{ "endian", share__required_argument, 0, 0 },
+	{ "channels", share__required_argument, 0, 0 },
+	{ "bps", share__required_argument, 0, 0 },
+	{ "sample-rate", share__required_argument, 0, 0 },
+	{ "sign", share__required_argument, 0, 0 },
+	{ "input-size", share__required_argument, 0, 0 },
+	{ "error-on-compression-fail", share__no_argument, 0, 0 },
+	{ "limit-min-bitrate", share__no_argument, 0, 0 },
 
 	/*
 	 * analysis options
@@ -192,41 +192,41 @@ static struct share__option long_options_[] = {
 	/*
 	 * negatives
 	 */
-	{ "no-preserve-modtime"       , share__no_argument, 0, 0 },
-	{ "no-decode-through-errors"  , share__no_argument, 0, 0 },
-	{ "no-silent"                 , share__no_argument, 0, 0 },
-	{ "no-force"                  , share__no_argument, 0, 0 },
-	{ "no-seektable"              , share__no_argument, 0, 0 },
-	{ "no-delete-input-file"      , share__no_argument, 0, 0 },
-	{ "no-keep-foreign-metadata"  , share__no_argument, 0, 0 },
-	{ "no-replay-gain"            , share__no_argument, 0, 0 },
-	{ "no-ignore-chunk-sizes"     , share__no_argument, 0, 0 },
-	{ "no-utf8-convert"           , share__no_argument, 0, 0 },
-	{ "no-lax"                    , share__no_argument, 0, 0 },
+	{ "no-preserve-modtime", share__no_argument, 0, 0 },
+	{ "no-decode-through-errors", share__no_argument, 0, 0 },
+	{ "no-silent", share__no_argument, 0, 0 },
+	{ "no-force", share__no_argument, 0, 0 },
+	{ "no-seektable", share__no_argument, 0, 0 },
+	{ "no-delete-input-file", share__no_argument, 0, 0 },
+	{ "no-keep-foreign-metadata", share__no_argument, 0, 0 },
+	{ "no-replay-gain", share__no_argument, 0, 0 },
+	{ "no-ignore-chunk-sizes", share__no_argument, 0, 0 },
+	{ "no-utf8-convert", share__no_argument, 0, 0 },
+	{ "no-lax", share__no_argument, 0, 0 },
 #if FLAC__HAS_OGG
-	{ "no-ogg"                    , share__no_argument, 0, 0 },
+	{ "no-ogg", share__no_argument, 0, 0 },
 #endif
 	{ "no-exhaustive-model-search", share__no_argument, 0, 0 },
-	{ "no-mid-side"               , share__no_argument, 0, 0 },
-	{ "no-adaptive-mid-side"      , share__no_argument, 0, 0 },
-	{ "no-qlp-coeff-prec-search"  , share__no_argument, 0, 0 },
-	{ "no-padding"                , share__no_argument, 0, 0 },
-	{ "no-verify"                 , share__no_argument, 0, 0 },
-	{ "no-warnings-as-errors"     , share__no_argument, 0, 0 },
-	{ "no-residual-gnuplot"       , share__no_argument, 0, 0 },
-	{ "no-residual-text"          , share__no_argument, 0, 0 },
+	{ "no-mid-side", share__no_argument, 0, 0 },
+	{ "no-adaptive-mid-side", share__no_argument, 0, 0 },
+	{ "no-qlp-coeff-prec-search", share__no_argument, 0, 0 },
+	{ "no-padding", share__no_argument, 0, 0 },
+	{ "no-verify", share__no_argument, 0, 0 },
+	{ "no-warnings-as-errors", share__no_argument, 0, 0 },
+	{ "no-residual-gnuplot", share__no_argument, 0, 0 },
+	{ "no-residual-text", share__no_argument, 0, 0 },
 	{ "no-error-on-compression-fail", share__no_argument, 0, 0 },
 	/*
 	 * undocumented debugging options for the test suite
 	 */
 	{ "disable-constant-subframes", share__no_argument, 0, 0 },
-	{ "disable-fixed-subframes"   , share__no_argument, 0, 0 },
+	{ "disable-fixed-subframes", share__no_argument, 0, 0 },
 	{ "disable-verbatim-subframes", share__no_argument, 0, 0 },
-	{ "no-md5-sum"                , share__no_argument, 0, 0 },
+	{ "benchmark-disable-instruction-set", share__required_argument, 0, 0 },
+	{ "no-md5-sum", share__no_argument, 0, 0 },
 
-	{0, 0, 0, 0}
+	{ 0, 0, 0, 0 }
 };
-
 
 /*
  * global to hold command-line option values
@@ -299,15 +299,14 @@ static struct {
 		FLAC__bool disable_constant_subframes;
 		FLAC__bool disable_fixed_subframes;
 		FLAC__bool disable_verbatim_subframes;
+		int disable_instruction_set;
 		FLAC__bool do_md5;
 	} debug;
 } option_values;
 
-
 /*
  * miscellaneous globals
  */
-
 
 #ifndef FUZZ_TOOL_FLAC
 int main(int argc, char *argv[])
@@ -322,19 +321,19 @@ static int main_to_fuzz(int argc, char *argv[])
 	_wildcard(&argc, &argv);
 #endif
 #ifdef _WIN32
-	if (get_utf8_argv(&argc, &argv) != 0) {
+	if(get_utf8_argv(&argc, &argv) != 0) {
 		fprintf(stderr, "ERROR: failed to convert command line parameters to UTF-8\n");
 		return 1;
 	}
 	SetConsoleOutputCP(CP_UTF8);
-	_setmode(fileno(stderr),_O_U8TEXT);
+	_setmode(fileno(stderr), _O_U8TEXT);
 #endif
 
 #ifdef HAVE_SYS_TIME_H
 	{
 		struct timeval tv;
 
-		if (gettimeofday(&tv, 0) < 0) {
+		if(gettimeofday(&tv, 0) < 0) {
 			/* fall back when gettimeofday fails */
 			srand(((uint32_t)time(0) << 8) + (uint32_t)clock());
 		}
@@ -363,11 +362,11 @@ static int main_to_fuzz(int argc, char *argv[])
 	{
 		const char *var;
 		var = getenv("LC_ALL");
-		if (!var)
+		if(!var)
 			var = getenv("LC_NUMERIC");
-		if (!var)
+		if(!var)
 			var = getenv("LANG");
-		if (!var || strcmp(var, "C") != 0)
+		if(!var || strcmp(var, "C") != 0)
 			setlocale(LC_ALL, "");
 	}
 #else
@@ -443,15 +442,15 @@ int do_it(void)
 			if(!FLAC__format_sample_rate_is_valid(option_values.format_sample_rate))
 				return usage_error("ERROR: invalid sample rate '%u', must be > 0 and <= %u\n", option_values.format_sample_rate, FLAC__MAX_SAMPLE_RATE);
 		}
-		if((option_values.force_raw_format?1:0) +
-		   (option_values.force_aiff_format?1:0) +
-		   (option_values.force_rf64_format?1:0) +
-		   (option_values.force_wave64_format?1:0) +
-		   (option_values.force_legacy_wave_format?1:0) +
-		   (option_values.force_extensible_wave_format?1:0) +
-		   (option_values.force_aiff_c_none_format?1:0) +
-		   (option_values.force_aiff_c_sowt_format?1:0)
-		    > 1)
+		if((option_values.force_raw_format ? 1 : 0) +
+			   (option_values.force_aiff_format ? 1 : 0) +
+			   (option_values.force_rf64_format ? 1 : 0) +
+			   (option_values.force_wave64_format ? 1 : 0) +
+			   (option_values.force_legacy_wave_format ? 1 : 0) +
+			   (option_values.force_extensible_wave_format ? 1 : 0) +
+			   (option_values.force_aiff_c_none_format ? 1 : 0) +
+			   (option_values.force_aiff_c_sowt_format ? 1 : 0) >
+		   1)
 			return usage_error("ERROR: only one of force format options allowed\n");
 		if(option_values.mode_decode) {
 			if(!option_values.force_raw_format) {
@@ -489,8 +488,7 @@ int do_it(void)
 				return usage_error("ERROR: invalid sample rate used with --replay-gain\n");
 			if(
 				(option_values.padding >= 0 && option_values.padding < (int)GRABBAG__REPLAYGAIN_MAX_TAG_SPACE_REQUIRED) ||
-				(option_values.padding < 0 && FLAC_ENCODE__DEFAULT_PADDING < (int)GRABBAG__REPLAYGAIN_MAX_TAG_SPACE_REQUIRED)
-			) {
+				(option_values.padding < 0 && FLAC_ENCODE__DEFAULT_PADDING < (int)GRABBAG__REPLAYGAIN_MAX_TAG_SPACE_REQUIRED)) {
 				flac__utils_printf(stderr, 1, "NOTE: --replay-gain may leave a small PADDING block even with --no-padding\n");
 			}
 		}
@@ -522,9 +520,7 @@ int do_it(void)
 				return usage_error("ERROR: --cue is not supported when decoding chained streams\n");
 			if(option_values.continue_through_decode_errors)
 				return usage_error("ERROR: decoding through errors is not supported when decoding chained streams\n");
-
 		}
-
 	}
 
 	flac__utils_printf(stderr, 2, "\n");
@@ -567,7 +563,7 @@ int do_it(void)
 			for(i = 0, retval = 0; i < option_values.num_files; i++) {
 				if(0 == strcmp(option_values.filenames[i], "-") && !first)
 					continue;
-				if(encode_file(option_values.filenames[i], first, i == (option_values.num_files-1)))
+				if(encode_file(option_values.filenames[i], first, i == (option_values.num_files - 1)))
 					retval = 1;
 				else
 					first = false;
@@ -663,6 +659,7 @@ FLAC__bool init_options(void)
 	option_values.debug.disable_constant_subframes = false;
 	option_values.debug.disable_fixed_subframes = false;
 	option_values.debug.disable_verbatim_subframes = false;
+	option_values.debug.disable_instruction_set = 0;
 	option_values.debug.do_md5 = true;
 
 	if(0 == (option_values.vorbis_comment = FLAC__metadata_object_new(FLAC__METADATA_TYPE_VORBIS_COMMENT)))
@@ -678,8 +675,8 @@ int parse_options(int argc, char *argv[])
 	FLAC__bool had_error = false;
 	const char *short_opts = "0123456789aA:b:cdefFhj:l:mMo:pP:q:r:sS:tT:vVw";
 
-	while ((short_option = share__getopt_long(argc, argv, short_opts, long_options_, &option_index)) != -1) {
-		switch (short_option) {
+	while((short_option = share__getopt_long(argc, argv, short_opts, long_options_, &option_index)) != -1) {
+		switch(short_option) {
 			case 0: /* long option with no equivalent short option */
 				had_error |= (parse_option(short_option, long_options_[option_index].name, share__optarg) != 0);
 				break;
@@ -703,7 +700,7 @@ int parse_options(int argc, char *argv[])
 
 	if(option_values.num_files > 0) {
 		uint32_t i = 0;
-		if(0 == (option_values.filenames = malloc(sizeof(char*) * option_values.num_files)))
+		if(0 == (option_values.filenames = malloc(sizeof(char *) * option_values.num_files)))
 			die("out of memory allocating space for file names list");
 		while(share__optind < argc)
 			option_values.filenames[i++] = local_strdup(argv[share__optind++]);
@@ -766,21 +763,21 @@ int parse_option(int short_option, const char *long_option, const char *option_a
 		}
 		else if(0 == strcmp(long_option, "apply-replaygain-which-is-not-lossless")) {
 			option_values.replaygain_synthesis_spec.apply = true;
-			if (0 != option_argument) {
+			if(0 != option_argument) {
 				char *p;
 				option_values.replaygain_synthesis_spec.limiter = RGSS_LIMIT__NONE;
 				option_values.replaygain_synthesis_spec.noise_shaping = NOISE_SHAPING_NONE;
 				option_values.replaygain_synthesis_spec.preamp = strtod(option_argument, &p);
-				for ( ; *p; p++) {
-					if (*p == 'a')
+				for(; *p; p++) {
+					if(*p == 'a')
 						option_values.replaygain_synthesis_spec.use_album_gain = true;
-					else if (*p == 't')
+					else if(*p == 't')
 						option_values.replaygain_synthesis_spec.use_album_gain = false;
-					else if (*p == 'l')
+					else if(*p == 'l')
 						option_values.replaygain_synthesis_spec.limiter = RGSS_LIMIT__PEAK;
-					else if (*p == 'L')
+					else if(*p == 'L')
 						option_values.replaygain_synthesis_spec.limiter = RGSS_LIMIT__HARD;
-					else if (*p == 'n' && p[1] >= '0' && p[1] <= '3') {
+					else if(*p == 'n' && p[1] >= '0' && p[1] <= '3') {
 						option_values.replaygain_synthesis_spec.noise_shaping = p[1] - '0';
 						p++;
 					}
@@ -790,7 +787,7 @@ int parse_option(int short_option, const char *long_option, const char *option_a
 			}
 		}
 		else if(0 == strcmp(long_option, "channel-map")) {
-			if (0 == option_argument || strcmp(option_argument, "none"))
+			if(0 == option_argument || strcmp(option_argument, "none"))
 				return usage_error("ERROR: only --channel-map=none currently supported\n");
 			option_values.channel_map_none = true;
 		}
@@ -799,7 +796,7 @@ int parse_option(int short_option, const char *long_option, const char *option_a
 			option_values.cuesheet_filename = option_argument;
 		}
 		else if(0 == strcmp(long_option, "picture")) {
-			const uint32_t max_pictures = sizeof(option_values.pictures)/sizeof(option_values.pictures[0]);
+			const uint32_t max_pictures = sizeof(option_values.pictures) / sizeof(option_values.pictures[0]);
 			FLAC__ASSERT(0 != option_argument);
 			if(option_values.num_pictures >= max_pictures)
 				return usage_error("ERROR: too many --picture arguments, only %u allowed\n", max_pictures);
@@ -852,7 +849,7 @@ int parse_option(int short_option, const char *long_option, const char *option_a
 		else if(0 == strcmp(long_option, "ogg")) {
 			option_values.use_ogg = true;
 		}
-		else if (0 == strcmp(long_option, "decode-chained-stream")) {
+		else if(0 == strcmp(long_option, "decode-chained-stream")) {
 			option_values.decode_chained_stream = true;
 		}
 		else if(0 == strcmp(long_option, "serial-number")) {
@@ -982,6 +979,17 @@ int parse_option(int short_option, const char *long_option, const char *option_a
 		else if(0 == strcmp(long_option, "disable-verbatim-subframes")) {
 			option_values.debug.disable_verbatim_subframes = true;
 		}
+		else if(0 == strcmp(long_option, "benchmark-disable-instruction-set")) {
+			char *end;
+			long value;
+
+			FLAC__ASSERT(0 != option_argument);
+			errno = 0;
+			value = strtol(option_argument, &end, 10);
+			if(errno || end == option_argument || *end != '\0' || value < 0 || value > 127)
+				return usage_error("ERROR: --%s must be an integer between 0 and 127\n", long_option);
+			option_values.debug.disable_instruction_set = (int)value;
+		}
 		else if(0 == strcmp(long_option, "no-md5-sum")) {
 			option_values.debug.do_md5 = false;
 		}
@@ -1043,7 +1051,7 @@ int parse_option(int short_option, const char *long_option, const char *option_a
 			case '6':
 			case '7':
 			case '8':
-				add_compression_setting_uint32_t(CST_COMPRESSION_LEVEL, short_option-'0');
+				add_compression_setting_uint32_t(CST_COMPRESSION_LEVEL, short_option - '0');
 				break;
 			case '9':
 				return usage_error("ERROR: compression level '9' is reserved\n");
@@ -1063,12 +1071,12 @@ int parse_option(int short_option, const char *long_option, const char *option_a
 					if(option_values.num_requested_seek_points < 0)
 						option_values.num_requested_seek_points = 0;
 					option_values.num_requested_seek_points++;
-					if(strlen(option_values.requested_seek_points)+strlen(option_argument)+2 >= sizeof(option_values.requested_seek_points)) {
+					if(strlen(option_values.requested_seek_points) + strlen(option_argument) + 2 >= sizeof(option_values.requested_seek_points)) {
 						return usage_error("ERROR: too many seekpoints requested\n");
 					}
 					else {
 						size_t len = strlen(option_values.requested_seek_points);
-						flac_snprintf(option_values.requested_seek_points+len, sizeof(option_values.requested_seek_points) - len, "%s;", option_argument);
+						flac_snprintf(option_values.requested_seek_points + len, sizeof(option_values.requested_seek_points) - len, "%s;", option_argument);
 					}
 				}
 				break;
@@ -1078,32 +1086,28 @@ int parse_option(int short_option, const char *long_option, const char *option_a
 				if(option_values.padding < 0)
 					return usage_error("ERROR: argument to -%c must be >= 0; for no padding use -%c-\n", short_option, short_option);
 				break;
-			case 'b':
-				{
-					uint32_t i ;
-					FLAC__ASSERT(0 != option_argument);
-					i = atoi(option_argument);
-					if((i < (int)FLAC__MIN_BLOCK_SIZE || i > (int)FLAC__MAX_BLOCK_SIZE))
-						return usage_error("ERROR: invalid blocksize (-%c) '%d', must be >= %u and <= %u\n", short_option, i, FLAC__MIN_BLOCK_SIZE, FLAC__MAX_BLOCK_SIZE);
-					add_compression_setting_uint32_t(CST_BLOCKSIZE, (uint32_t)i);
-				}
-				break;
+			case 'b': {
+				uint32_t i;
+				FLAC__ASSERT(0 != option_argument);
+				i = atoi(option_argument);
+				if((i < (int)FLAC__MIN_BLOCK_SIZE || i > (int)FLAC__MAX_BLOCK_SIZE))
+					return usage_error("ERROR: invalid blocksize (-%c) '%d', must be >= %u and <= %u\n", short_option, i, FLAC__MIN_BLOCK_SIZE, FLAC__MAX_BLOCK_SIZE);
+				add_compression_setting_uint32_t(CST_BLOCKSIZE, (uint32_t)i);
+			} break;
 			case 'e':
 				add_compression_setting_bool(CST_DO_EXHAUSTIVE_MODEL_SEARCH, true);
 				break;
 			case 'E':
 				add_compression_setting_bool(CST_DO_ESCAPE_CODING, true);
 				break;
-			case 'l':
-				{
-					uint32_t i ;
-					FLAC__ASSERT(0 != option_argument);
-					i = atoi(option_argument);
-					if(i > FLAC__MAX_LPC_ORDER)
-						return usage_error("ERROR: invalid LPC order (-%c) '%d', must be >= %u and <= %u\n", short_option, i, 0, FLAC__MAX_LPC_ORDER);
-					add_compression_setting_uint32_t(CST_MAX_LPC_ORDER, i);
-				}
-				break;
+			case 'l': {
+				uint32_t i;
+				FLAC__ASSERT(0 != option_argument);
+				i = atoi(option_argument);
+				if(i > FLAC__MAX_LPC_ORDER)
+					return usage_error("ERROR: invalid LPC order (-%c) '%d', must be >= %u and <= %u\n", short_option, i, 0, FLAC__MAX_LPC_ORDER);
+				add_compression_setting_uint32_t(CST_MAX_LPC_ORDER, i);
+			} break;
 			case 'A':
 				FLAC__ASSERT(0 != option_argument);
 				add_compression_setting_string(CST_APODIZATION, option_argument);
@@ -1119,53 +1123,45 @@ int parse_option(int short_option, const char *long_option, const char *option_a
 			case 'p':
 				add_compression_setting_bool(CST_DO_QLP_COEFF_PREC_SEARCH, true);
 				break;
-			case 'q':
-				{
-					uint32_t i ;
-					FLAC__ASSERT(0 != option_argument);
+			case 'q': {
+				uint32_t i;
+				FLAC__ASSERT(0 != option_argument);
+				i = atoi(option_argument);
+				if((i > 0 && (i < FLAC__MIN_QLP_COEFF_PRECISION || i > FLAC__MAX_QLP_COEFF_PRECISION)))
+					return usage_error("ERROR: invalid value '%d' for qlp coeff precision (-%c), must be 0 or between %u and %u, inclusive\n", i, short_option, FLAC__MIN_QLP_COEFF_PRECISION, FLAC__MAX_QLP_COEFF_PRECISION);
+				add_compression_setting_uint32_t(CST_QLP_COEFF_PRECISION, i);
+			} break;
+			case 'r': {
+				uint32_t i;
+				char *p;
+				FLAC__ASSERT(0 != option_argument);
+				p = strchr(option_argument, ',');
+				if(0 == p) {
+					add_compression_setting_uint32_t(CST_MIN_RESIDUAL_PARTITION_ORDER, 0);
 					i = atoi(option_argument);
-					if((i > 0 && (i < FLAC__MIN_QLP_COEFF_PRECISION || i > FLAC__MAX_QLP_COEFF_PRECISION)))
-						return usage_error("ERROR: invalid value '%d' for qlp coeff precision (-%c), must be 0 or between %u and %u, inclusive\n", i, short_option, FLAC__MIN_QLP_COEFF_PRECISION, FLAC__MAX_QLP_COEFF_PRECISION);
-					add_compression_setting_uint32_t(CST_QLP_COEFF_PRECISION, i);
+					if(i > FLAC__MAX_RICE_PARTITION_ORDER)
+						return usage_error("ERROR: invalid value '%d' for residual partition order (-%c), must be between 0 and %u, inclusive\n", i, short_option, FLAC__MAX_RICE_PARTITION_ORDER);
+					add_compression_setting_uint32_t(CST_MAX_RESIDUAL_PARTITION_ORDER, i);
 				}
-				break;
-			case 'r':
-				{
-					uint32_t i;
-					char * p;
-					FLAC__ASSERT(0 != option_argument);
-					p = strchr(option_argument, ',');
-					if(0 == p) {
-						add_compression_setting_uint32_t(CST_MIN_RESIDUAL_PARTITION_ORDER, 0);
-						i = atoi(option_argument);
-						if(i > FLAC__MAX_RICE_PARTITION_ORDER)
-							return usage_error("ERROR: invalid value '%d' for residual partition order (-%c), must be between 0 and %u, inclusive\n", i, short_option, FLAC__MAX_RICE_PARTITION_ORDER);
-						add_compression_setting_uint32_t(CST_MAX_RESIDUAL_PARTITION_ORDER, i);
-					}
-					else {
-						i = atoi(option_argument);
-						if(i > FLAC__MAX_RICE_PARTITION_ORDER)
-							return usage_error("ERROR: invalid value '%d' for min residual partition order (-%c), must be between 0 and %u, inclusive\n", i, short_option, FLAC__MAX_RICE_PARTITION_ORDER);
-						add_compression_setting_uint32_t(CST_MIN_RESIDUAL_PARTITION_ORDER, i);
-						i = atoi(++p);
-						if(i > FLAC__MAX_RICE_PARTITION_ORDER)
-							return usage_error("ERROR: invalid value '%d' for max residual partition order (-%c), must be between 0 and %u, inclusive\n", i, short_option, FLAC__MAX_RICE_PARTITION_ORDER);
-						add_compression_setting_uint32_t(CST_MAX_RESIDUAL_PARTITION_ORDER, i);
-					}
-				}
-				break;
-			case 'R':
-				{
-					uint32_t i;
+				else {
 					i = atoi(option_argument);
-					add_compression_setting_uint32_t(CST_RICE_PARAMETER_SEARCH_DIST, i);
+					if(i > FLAC__MAX_RICE_PARTITION_ORDER)
+						return usage_error("ERROR: invalid value '%d' for min residual partition order (-%c), must be between 0 and %u, inclusive\n", i, short_option, FLAC__MAX_RICE_PARTITION_ORDER);
+					add_compression_setting_uint32_t(CST_MIN_RESIDUAL_PARTITION_ORDER, i);
+					i = atoi(++p);
+					if(i > FLAC__MAX_RICE_PARTITION_ORDER)
+						return usage_error("ERROR: invalid value '%d' for max residual partition order (-%c), must be between 0 and %u, inclusive\n", i, short_option, FLAC__MAX_RICE_PARTITION_ORDER);
+					add_compression_setting_uint32_t(CST_MAX_RESIDUAL_PARTITION_ORDER, i);
 				}
-				break;
-			case 'j':
-				{
-					option_values.threads = atoi(option_argument);
-				}
-				break;
+			} break;
+			case 'R': {
+				uint32_t i;
+				i = atoi(option_argument);
+				add_compression_setting_uint32_t(CST_RICE_PARAMETER_SEARCH_DIST, i);
+			} break;
+			case 'j': {
+				option_values.threads = atoi(option_argument);
+			} break;
 			default:
 				FLAC__ASSERT(0);
 		}
@@ -1192,7 +1188,7 @@ void free_options(void)
 
 void add_compression_setting_bool(compression_setting_type_t type, FLAC__bool value)
 {
-	if(option_values.num_compression_settings >= sizeof(option_values.compression_settings)/sizeof(option_values.compression_settings[0]))
+	if(option_values.num_compression_settings >= sizeof(option_values.compression_settings) / sizeof(option_values.compression_settings[0]))
 #ifndef FUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION
 		die("too many compression settings");
 #else
@@ -1205,7 +1201,7 @@ void add_compression_setting_bool(compression_setting_type_t type, FLAC__bool va
 
 void add_compression_setting_string(compression_setting_type_t type, const char *value)
 {
-	if(option_values.num_compression_settings >= sizeof(option_values.compression_settings)/sizeof(option_values.compression_settings[0]))
+	if(option_values.num_compression_settings >= sizeof(option_values.compression_settings) / sizeof(option_values.compression_settings[0]))
 #ifndef FUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION
 		die("too many compression settings");
 #else
@@ -1218,7 +1214,7 @@ void add_compression_setting_string(compression_setting_type_t type, const char 
 
 void add_compression_setting_uint32_t(compression_setting_type_t type, uint32_t value)
 {
-	if(option_values.num_compression_settings >= sizeof(option_values.compression_settings)/sizeof(option_values.compression_settings[0]))
+	if(option_values.num_compression_settings >= sizeof(option_values.compression_settings) / sizeof(option_values.compression_settings[0]))
 #ifndef FUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION
 		die("too many compression settings");
 #else
@@ -1246,7 +1242,7 @@ int usage_error(const char *message, ...)
 		va_start(args, message);
 
 #ifndef FUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION
-		(void) flac_vfprintf(stderr, message, args);
+		(void)flac_vfprintf(stderr, message, args);
 #endif
 
 		va_end(args);
@@ -1478,8 +1474,7 @@ int encode_file(const char *infilename, FLAC__bool is_first_file, FLAC__bool is_
 		infilesize = (FLAC__off_t)(-1);
 		encode_infile = grabbag__file_get_binary_stdin();
 	}
-	else
-	{
+	else {
 		infilesize = grabbag__file_get_filesize(infilename);
 		if(0 == (encode_infile = flac_fopen(infilename, "rb"))) {
 			flac__utils_printf(stderr, 1, "ERROR: can't open input file %s: %s\n", infilename, strerror(errno));
@@ -1490,21 +1485,21 @@ int encode_file(const char *infilename, FLAC__bool is_first_file, FLAC__bool is_
 	if(!option_values.force_raw_format) {
 		/* first set format based on name */
 		infilename_length = strlen(infilename);
-		if(infilename_length >= 4 && 0 == FLAC__STRCASECMP(infilename+(infilename_length-4), ".wav"))
+		if(infilename_length >= 4 && 0 == FLAC__STRCASECMP(infilename + (infilename_length - 4), ".wav"))
 			input_format = FORMAT_WAVE;
-		else if(infilename_length >= 5 && 0 == FLAC__STRCASECMP(infilename+(infilename_length-5), ".rf64"))
+		else if(infilename_length >= 5 && 0 == FLAC__STRCASECMP(infilename + (infilename_length - 5), ".rf64"))
 			input_format = FORMAT_RF64;
-		else if(infilename_length >= 4 && 0 == FLAC__STRCASECMP(infilename+(infilename_length-4), ".w64"))
+		else if(infilename_length >= 4 && 0 == FLAC__STRCASECMP(infilename + (infilename_length - 4), ".w64"))
 			input_format = FORMAT_WAVE64;
-		else if(infilename_length >= 4 && 0 == FLAC__STRCASECMP(infilename+(infilename_length-4), ".aif"))
+		else if(infilename_length >= 4 && 0 == FLAC__STRCASECMP(infilename + (infilename_length - 4), ".aif"))
 			input_format = FORMAT_AIFF;
-		else if(infilename_length >= 5 && 0 == FLAC__STRCASECMP(infilename+(infilename_length-5), ".aiff"))
+		else if(infilename_length >= 5 && 0 == FLAC__STRCASECMP(infilename + (infilename_length - 5), ".aiff"))
 			input_format = FORMAT_AIFF;
-		else if(infilename_length >= 5 && 0 == FLAC__STRCASECMP(infilename+(infilename_length-5), ".flac"))
+		else if(infilename_length >= 5 && 0 == FLAC__STRCASECMP(infilename + (infilename_length - 5), ".flac"))
 			input_format = FORMAT_FLAC;
-		else if(infilename_length >= 4 && 0 == FLAC__STRCASECMP(infilename+(infilename_length-4), ".oga"))
+		else if(infilename_length >= 4 && 0 == FLAC__STRCASECMP(infilename + (infilename_length - 4), ".oga"))
 			input_format = FORMAT_OGGFLAC;
-		else if(infilename_length >= 4 && 0 == FLAC__STRCASECMP(infilename+(infilename_length-4), ".ogg"))
+		else if(infilename_length >= 4 && 0 == FLAC__STRCASECMP(infilename + (infilename_length - 4), ".ogg"))
 			input_format = FORMAT_OGGFLAC;
 
 		/* attempt to guess the file type based on the first 12 bytes */
@@ -1526,15 +1521,15 @@ int encode_file(const char *infilename, FLAC__bool is_first_file, FLAC__bool is_
 				conditional_fclose(encode_infile);
 				return 1;
 			}
-			else if(!memcmp(lookahead, "RIFF", 4) && !memcmp(lookahead+8, "WAVE", 4))
+			else if(!memcmp(lookahead, "RIFF", 4) && !memcmp(lookahead + 8, "WAVE", 4))
 				input_format = FORMAT_WAVE;
-			else if(!memcmp(lookahead, "RF64", 4) && !memcmp(lookahead+8, "WAVE", 4))
+			else if(!memcmp(lookahead, "RF64", 4) && !memcmp(lookahead + 8, "WAVE", 4))
 				input_format = FORMAT_RF64;
 			else if(!memcmp(lookahead, "riff\x2E\x91\xCF\x11\xA5\xD6\x28\xDB", 12)) /* just check 1st 12 bytes of GUID */
 				input_format = FORMAT_WAVE64;
-			else if(!memcmp(lookahead, "FORM", 4) && !memcmp(lookahead+8, "AIFF", 4))
+			else if(!memcmp(lookahead, "FORM", 4) && !memcmp(lookahead + 8, "AIFF", 4))
 				input_format = FORMAT_AIFF;
-			else if(!memcmp(lookahead, "FORM", 4) && !memcmp(lookahead+8, "AIFC", 4))
+			else if(!memcmp(lookahead, "FORM", 4) && !memcmp(lookahead + 8, "AIFC", 4))
 				input_format = FORMAT_AIFF_C;
 			else if(!memcmp(lookahead, FLAC__STREAM_SYNC_STRING, sizeof(FLAC__STREAM_SYNC_STRING)))
 				input_format = FORMAT_FLAC;
@@ -1556,22 +1551,21 @@ int encode_file(const char *infilename, FLAC__bool is_first_file, FLAC__bool is_
 		}
 	}
 
-	if(!option_values.ignore_chunk_sizes
-	   && (input_format == FORMAT_WAVE || input_format == FORMAT_AIFF || input_format == FORMAT_AIFF_C)
-	   && infilesize >= UINT32_MAX) {
+	if(!option_values.ignore_chunk_sizes && (input_format == FORMAT_WAVE || input_format == FORMAT_AIFF || input_format == FORMAT_AIFF_C) && infilesize >= UINT32_MAX) {
 		conditional_fclose(encode_infile);
 		return usage_error("ERROR: file %s is too large to be valid.\n"
-		                   "Please consult the manual on the --ignore-chunk-sizes option\n\n", infilename);
+						   "Please consult the manual on the --ignore-chunk-sizes option\n\n",
+						   infilename);
 	}
 
 	if(input_format == FORMAT_WAVE || input_format == FORMAT_AIFF || input_format == FORMAT_AIFF_C) {
-		memcpy(&master_chunk_size,lookahead+4,sizeof(master_chunk_size));
+		memcpy(&master_chunk_size, lookahead + 4, sizeof(master_chunk_size));
 		if((input_format != FORMAT_WAVE) != CPU_IS_BIG_ENDIAN /* logical xor */)
 			/* true for WAVE on big endian CPUs or AIFF/AIFF-C on little endian CPUs */
 			master_chunk_size = ENDSWAP_32(master_chunk_size);
 
 		if(infilesize != (FLAC__off_t)(-1) && infilesize > 8 && (infilesize - 8) != master_chunk_size) {
-			flac__utils_printf(stderr, 1, "WARNING: %s chunk size of file %s does not agree with filesize\n", (input_format == FORMAT_WAVE)?"RIFF":"FORM", infilename);
+			flac__utils_printf(stderr, 1, "WARNING: %s chunk size of file %s does not agree with filesize\n", (input_format == FORMAT_WAVE) ? "RIFF" : "FORM", infilename);
 			if(option_values.treat_warnings_as_errors)
 				return 1;
 		}
@@ -1596,24 +1590,22 @@ int encode_file(const char *infilename, FLAC__bool is_first_file, FLAC__bool is_
 		if(input_format == FORMAT_FLAC) {
 			/* need more detailed error message when re-flac'ing to avoid confusing the user */
 			flac__utils_printf(stderr, 1,
-				"ERROR: output file %s already exists.\n\n"
-				"By default flac encodes files to FLAC format; if you meant to decode this file\n"
-				"from FLAC to something else, use -d.  If you meant to re-encode this file from\n"
-				"FLAC to FLAC again, use -f to force writing to the same file, or -o to specify\n"
-				"a different output filename.\n",
-				outfilename
-			);
+							   "ERROR: output file %s already exists.\n\n"
+							   "By default flac encodes files to FLAC format; if you meant to decode this file\n"
+							   "from FLAC to something else, use -d.  If you meant to re-encode this file from\n"
+							   "FLAC to FLAC again, use -f to force writing to the same file, or -o to specify\n"
+							   "a different output filename.\n",
+							   outfilename);
 		}
 		else if(input_format == FORMAT_OGGFLAC) {
 			/* need more detailed error message when re-flac'ing to avoid confusing the user */
 			flac__utils_printf(stderr, 1,
-				"ERROR: output file %s already exists.\n\n"
-				"By default 'flac -ogg' encodes files to Ogg FLAC format; if you meant to decode\n"
-				"this file from Ogg FLAC to something else, use -d.  If you meant to re-encode\n"
-				"this file from Ogg FLAC to Ogg FLAC again, use -f to force writing to the same\n"
-				"file, or -o to specify a different output filename.\n",
-				outfilename
-			);
+							   "ERROR: output file %s already exists.\n\n"
+							   "By default 'flac -ogg' encodes files to Ogg FLAC format; if you meant to decode\n"
+							   "this file from Ogg FLAC to something else, use -d.  If you meant to re-encode\n"
+							   "this file from Ogg FLAC to Ogg FLAC again, use -f to force writing to the same\n"
+							   "file, or -o to specify a different output filename.\n",
+							   outfilename);
 		}
 		else
 			flac__utils_printf(stderr, 1, "ERROR: output file %s already exists, use -f to override\n", outfilename);
@@ -1622,7 +1614,7 @@ int encode_file(const char *infilename, FLAC__bool is_first_file, FLAC__bool is_
 	}
 
 	if(option_values.format_input_size >= 0) {
-	   	if (input_format != FORMAT_RAW || infilesize >= 0) {
+		if(input_format != FORMAT_RAW || infilesize >= 0) {
 			flac__utils_printf(stderr, 1, "ERROR: can only use --input-size when encoding raw samples from stdin\n");
 			conditional_fclose(encode_infile);
 			return 1;
@@ -1675,9 +1667,9 @@ int encode_file(const char *infilename, FLAC__bool is_first_file, FLAC__bool is_
 	encode_options.use_ogg = option_values.use_ogg;
 	/* set a random serial number if one has not yet been specified */
 	if(!option_values.has_serial_number) {
-	        if (RAND_MAX < 0x7fffffff)
+		if(RAND_MAX < 0x7fffffff)
 			option_values.serial_number = (uint32_t)(rand() & 0x7fff) << 16 | (uint32_t)(rand());
-	        else
+		else
 			option_values.serial_number = rand();
 		option_values.has_serial_number = true;
 	}
@@ -1708,6 +1700,7 @@ int encode_file(const char *infilename, FLAC__bool is_first_file, FLAC__bool is_
 	encode_options.debug.disable_constant_subframes = option_values.debug.disable_constant_subframes;
 	encode_options.debug.disable_fixed_subframes = option_values.debug.disable_fixed_subframes;
 	encode_options.debug.disable_verbatim_subframes = option_values.debug.disable_verbatim_subframes;
+	encode_options.debug.disable_instruction_set = option_values.debug.disable_instruction_set;
 	encode_options.debug.do_md5 = option_values.debug.do_md5;
 	encode_options.error_on_compression_fail = option_values.error_on_compression_fail;
 	encode_options.limit_min_bitrate = option_values.limit_min_bitrate;
@@ -1733,10 +1726,10 @@ int encode_file(const char *infilename, FLAC__bool is_first_file, FLAC__bool is_
 		encode_options.format_options.raw.bps = option_values.format_bps;
 		encode_options.format_options.raw.sample_rate = option_values.format_sample_rate;
 
-		retval = flac__encode_file(encode_infile, infilesize, infilename, internal_outfilename? internal_outfilename : outfilename, lookahead, lookahead_length, encode_options);
+		retval = flac__encode_file(encode_infile, infilesize, infilename, internal_outfilename ? internal_outfilename : outfilename, lookahead, lookahead_length, encode_options);
 	}
 	else if(input_format == FORMAT_FLAC || input_format == FORMAT_OGGFLAC) {
-		retval = flac__encode_file(encode_infile, infilesize, infilename, internal_outfilename? internal_outfilename : outfilename, lookahead, lookahead_length, encode_options);
+		retval = flac__encode_file(encode_infile, infilesize, infilename, internal_outfilename ? internal_outfilename : outfilename, lookahead, lookahead_length, encode_options);
 	}
 	else if(input_format == FORMAT_WAVE || input_format == FORMAT_WAVE64 || input_format == FORMAT_RF64 || input_format == FORMAT_AIFF || input_format == FORMAT_AIFF_C) {
 		encode_options.format_options.iff.foreign_metadata = 0;
@@ -1745,12 +1738,8 @@ int encode_file(const char *infilename, FLAC__bool is_first_file, FLAC__bool is_
 		if(option_values.keep_foreign_metadata || option_values.keep_foreign_metadata_if_present) {
 			encode_options.format_options.iff.foreign_metadata =
 				flac__foreign_metadata_new(
-					input_format==FORMAT_WAVE || input_format==FORMAT_RF64?
-						FOREIGN_BLOCK_TYPE__RIFF :
-					input_format==FORMAT_WAVE64?
-						FOREIGN_BLOCK_TYPE__WAVE64 :
-						FOREIGN_BLOCK_TYPE__AIFF
-				);
+					input_format == FORMAT_WAVE || input_format == FORMAT_RF64 ? FOREIGN_BLOCK_TYPE__RIFF : input_format == FORMAT_WAVE64 ? FOREIGN_BLOCK_TYPE__WAVE64
+																																		  : FOREIGN_BLOCK_TYPE__AIFF);
 			if(0 == encode_options.format_options.iff.foreign_metadata) {
 				flac__utils_printf(stderr, 1, "ERROR: creating foreign metadata object\n");
 				conditional_fclose(encode_infile);
@@ -1760,7 +1749,7 @@ int encode_file(const char *infilename, FLAC__bool is_first_file, FLAC__bool is_
 			}
 		}
 
-		retval = flac__encode_file(encode_infile, infilesize, infilename, internal_outfilename? internal_outfilename : outfilename, lookahead, lookahead_length, encode_options);
+		retval = flac__encode_file(encode_infile, infilesize, infilename, internal_outfilename ? internal_outfilename : outfilename, lookahead, lookahead_length, encode_options);
 
 		if(encode_options.format_options.iff.foreign_metadata)
 			flac__foreign_metadata_delete(encode_options.format_options.iff.foreign_metadata);
@@ -1777,15 +1766,14 @@ int encode_file(const char *infilename, FLAC__bool is_first_file, FLAC__bool is_
 				const char *error;
 				grabbag__replaygain_get_title(&title_gain, &title_peak);
 				if(
-					0 != (error = grabbag__replaygain_store_to_file_reference(internal_outfilename? internal_outfilename : outfilename, option_values.preserve_modtime)) ||
-					0 != (error = grabbag__replaygain_store_to_file_title(internal_outfilename? internal_outfilename : outfilename, title_gain, title_peak, option_values.preserve_modtime))
-				) {
+					0 != (error = grabbag__replaygain_store_to_file_reference(internal_outfilename ? internal_outfilename : outfilename, option_values.preserve_modtime)) ||
+					0 != (error = grabbag__replaygain_store_to_file_title(internal_outfilename ? internal_outfilename : outfilename, title_gain, title_peak, option_values.preserve_modtime))) {
 					flac__utils_printf(stderr, 1, "%s: ERROR writing ReplayGain reference/title tags (%s)\n", outfilename, error);
 					retval = 1;
 				}
 			}
 			if(option_values.preserve_modtime && strcmp(infilename, "-"))
-				grabbag__file_copy_metadata(infilename, internal_outfilename? internal_outfilename : outfilename);
+				grabbag__file_copy_metadata(infilename, internal_outfilename ? internal_outfilename : outfilename);
 		}
 	}
 
@@ -1835,7 +1823,7 @@ int decode_file(const char *infilename)
 		return 1;
 	}
 
-	if(!option_values.analyze && !option_values.test_only &&(option_values.keep_foreign_metadata || option_values.keep_foreign_metadata_if_present)) {
+	if(!option_values.analyze && !option_values.test_only && (option_values.keep_foreign_metadata || option_values.keep_foreign_metadata_if_present)) {
 		const char *error;
 		if(0 == strcmp(infilename, "-") || 0 == strcmp(outfilename, "-"))
 			return usage_error("ERROR: --keep-foreign-metadata cannot be used when decoding from stdin or to stdout\n");
@@ -1873,19 +1861,16 @@ int decode_file(const char *infilename)
 		output_format = FORMAT_RAW;
 	else if(
 		option_values.force_aiff_format ||
-		(strlen(outfilename) >= 4 && 0 == FLAC__STRCASECMP(outfilename+(strlen(outfilename)-4), ".aif")) ||
-		(strlen(outfilename) >= 5 && 0 == FLAC__STRCASECMP(outfilename+(strlen(outfilename)-5), ".aiff"))
-	)
+		(strlen(outfilename) >= 4 && 0 == FLAC__STRCASECMP(outfilename + (strlen(outfilename) - 4), ".aif")) ||
+		(strlen(outfilename) >= 5 && 0 == FLAC__STRCASECMP(outfilename + (strlen(outfilename) - 5), ".aiff")))
 		output_format = FORMAT_AIFF;
 	else if(
 		option_values.force_rf64_format ||
-		(strlen(outfilename) >= 5 && 0 == FLAC__STRCASECMP(outfilename+(strlen(outfilename)-5), ".rf64"))
-	)
+		(strlen(outfilename) >= 5 && 0 == FLAC__STRCASECMP(outfilename + (strlen(outfilename) - 5), ".rf64")))
 		output_format = FORMAT_RF64;
 	else if(
 		option_values.force_wave64_format ||
-		(strlen(outfilename) >= 4 && 0 == FLAC__STRCASECMP(outfilename+(strlen(outfilename)-4), ".w64"))
-	)
+		(strlen(outfilename) >= 4 && 0 == FLAC__STRCASECMP(outfilename + (strlen(outfilename) - 4), ".w64")))
 		output_format = FORMAT_WAVE64;
 	else if(foreign_metadata != NULL) {
 		/* Pick a format based on what the foreign metadata contains */
@@ -1935,20 +1920,19 @@ int decode_file(const char *infilename)
 		}
 	}
 
-
 	/* Check whether output format agrees with foreign metadata */
 	if(foreign_metadata != NULL) {
 		if((output_format != FORMAT_WAVE && output_format != FORMAT_RF64) && foreign_metadata->type == FOREIGN_BLOCK_TYPE__RIFF) {
 			flac__foreign_metadata_delete(foreign_metadata);
-			return usage_error("ERROR: foreign metadata type RIFF cannot be restored to a%s file, only to WAVE and RF64\n",FileFormatString[output_format]);
+			return usage_error("ERROR: foreign metadata type RIFF cannot be restored to a%s file, only to WAVE and RF64\n", FileFormatString[output_format]);
 		}
 		if((output_format != FORMAT_AIFF && output_format != FORMAT_AIFF_C) && foreign_metadata->type == FOREIGN_BLOCK_TYPE__AIFF) {
 			flac__foreign_metadata_delete(foreign_metadata);
-			return usage_error("ERROR: foreign metadata type AIFF cannot be restored to a%s file, only to AIFF and AIFF-C\n",FileFormatString[output_format]);
+			return usage_error("ERROR: foreign metadata type AIFF cannot be restored to a%s file, only to AIFF and AIFF-C\n", FileFormatString[output_format]);
 		}
 		if(output_format != FORMAT_WAVE64 && foreign_metadata->type == FOREIGN_BLOCK_TYPE__WAVE64) {
 			flac__foreign_metadata_delete(foreign_metadata);
-			return usage_error("ERROR: foreign metadata type Wave64 cannot be restored to a%s file, only to Wave64\n",FileFormatString[output_format]);
+			return usage_error("ERROR: foreign metadata type Wave64 cannot be restored to a%s file, only to Wave64\n", FileFormatString[output_format]);
 		}
 	}
 
@@ -1975,9 +1959,9 @@ int decode_file(const char *infilename)
 	infilename_length = strlen(infilename);
 	if(option_values.use_ogg)
 		treat_as_ogg = true;
-	else if(infilename_length >= 4 && 0 == FLAC__STRCASECMP(infilename+(infilename_length-4), ".oga"))
+	else if(infilename_length >= 4 && 0 == FLAC__STRCASECMP(infilename + (infilename_length - 4), ".oga"))
 		treat_as_ogg = true;
-	else if(infilename_length >= 4 && 0 == FLAC__STRCASECMP(infilename+(infilename_length-4), ".ogg"))
+	else if(infilename_length >= 4 && 0 == FLAC__STRCASECMP(infilename + (infilename_length - 4), ".ogg"))
 		treat_as_ogg = true;
 	else
 		treat_as_ogg = false;
@@ -2031,13 +2015,12 @@ int decode_file(const char *infilename)
 		decode_options.format_options.raw.is_big_endian = option_values.format_is_big_endian;
 		decode_options.format_options.raw.is_unsigned_samples = option_values.format_is_unsigned_samples;
 
-		retval = flac__decode_file(infilename, option_values.test_only? 0 : outfilename, option_values.analyze, option_values.aopts, decode_options);
+		retval = flac__decode_file(infilename, option_values.test_only ? 0 : outfilename, option_values.analyze, option_values.aopts, decode_options);
 	}
 	else {
 		decode_options.format_options.iff.foreign_metadata = foreign_metadata;
 
-		retval = flac__decode_file(infilename, option_values.test_only? 0 : outfilename, option_values.analyze, option_values.aopts, decode_options);
-
+		retval = flac__decode_file(infilename, option_values.test_only ? 0 : outfilename, option_values.analyze, option_values.aopts, decode_options);
 	}
 
 	if(foreign_metadata)
@@ -2055,7 +2038,7 @@ int decode_file(const char *infilename)
 
 const char *get_encoded_outfilename(const char *infilename)
 {
-	const char *suffix = (option_values.use_ogg? ".oga" : ".flac");
+	const char *suffix = (option_values.use_ogg ? ".oga" : ".flac");
 	const char *p;
 
 	if(option_values.output_prefix) {
@@ -2110,23 +2093,23 @@ const char *get_outfilename(const char *infilename, const char *suffix)
 		static char buffer[4096];
 
 		if(0 == strcmp(infilename, "-") || option_values.force_to_stdout) {
-			buffer [0] = '-';
-			buffer [1] = 0;
+			buffer[0] = '-';
+			buffer[1] = 0;
 		}
 		else {
 			char *p;
-			if (flac__strlcpy(buffer, option_values.output_prefix? option_values.output_prefix : "", sizeof buffer) >= sizeof buffer)
+			if(flac__strlcpy(buffer, option_values.output_prefix ? option_values.output_prefix : "", sizeof buffer) >= sizeof buffer)
 				return 0;
-			if (flac__strlcat(buffer, infilename, sizeof buffer) >= sizeof buffer)
+			if(flac__strlcat(buffer, infilename, sizeof buffer) >= sizeof buffer)
 				return 0;
 			/* the . must come after any / to avoid problems with, e.g. "some.directory/extensionless-filename" */
 			if(0 == (p = strrchr(buffer, '.')) || strchr(p, '/')) {
-				if (flac__strlcat(buffer, suffix, sizeof buffer) >= sizeof buffer)
+				if(flac__strlcat(buffer, suffix, sizeof buffer) >= sizeof buffer)
 					return 0;
 			}
 			else {
 				*p = '\0';
-				if (flac__strlcat(buffer, suffix, sizeof buffer) >= sizeof buffer)
+				if(flac__strlcat(buffer, suffix, sizeof buffer) >= sizeof buffer)
 					return 0;
 			}
 		}
