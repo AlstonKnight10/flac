@@ -9,8 +9,8 @@ CORPUS_DIR="${BENCH_DIR}/corpus"
 
 RUNS=10
 WARMUPS=1
-PRESETS="5 8"
-THREADS=1
+PRESETS="8"
+THREADS_LIST="1 2 4 8 16 32"
 TASKSET_CPU=""
 OUT_DIR="${BENCH_DIR}/tmp_out"
 USE_PERF=0
@@ -30,7 +30,7 @@ Options:
   --runs N               Measured repetitions per case (default: 10)
   --warmups N            Warmup runs per case (default: 1)
   --presets "LIST"       Space-separated FLAC presets, e.g. "5 8"
-  --threads N            Encoder threads passed to flac -j (default: 1)
+  --threads "LIST"       Space-separated thread counts for flac -j (default: "1 2 4 8 16 32")
   --taskset-cpu N        Pin benchmark process to CPU core N
   --use-perf             Collect perf stat counters if available
   --out-dir PATH         Output FLAC temp directory (default: bench/tmp_out)
@@ -80,7 +80,7 @@ parse_args() {
         shift 2
         ;;
       --threads)
-        THREADS="$2"
+        THREADS_LIST="$2"
         shift 2
         ;;
       --taskset-cpu)
@@ -165,7 +165,7 @@ mask_label() {
     121) echo "sse2_ssse3" ;;
     113) echo "plus_sse41" ;;
     49)  echo "plus_sse42" ;;
-    17)  echo "plus_avx2" ;;
+    33)  echo "plus_avx2" ;;
     1)   echo "plus_fma" ;;
     *)   echo "mask_$1" ;;
   esac
@@ -196,7 +196,7 @@ run_one() {
     input_stem="${input_base}"
   fi
   local output
-  output="${OUT_DIR}/${variant}/p${preset}/m${mask}/${input_stem}.flac"
+  output="${OUT_DIR}/${variant}/p${preset}/t${THREADS}/m${mask}/${input_stem}.flac"
   mkdir -p "$(dirname "${output}")"
   rm -f "${output}"
 
@@ -279,17 +279,20 @@ run_variant_matrix() {
     masks=(127 125 121 113 49)
   fi
 
-  local preset mask input run
+  local preset mask input run threads
   for preset in ${PRESETS}; do
-    for mask in "${masks[@]}"; do
-      while IFS= read -r input; do
-        for ((run = 1; run <= WARMUPS; run++)); do
-          run_one "${flac_bin}" "${variant}" "${with_asm}" "${with_avx}" "${mask}" "${preset}" "${input}" "${run}" "warmup"
-        done
-        for ((run = 1; run <= RUNS; run++)); do
-          run_one "${flac_bin}" "${variant}" "${with_asm}" "${with_avx}" "${mask}" "${preset}" "${input}" "${run}" "measure"
-        done
-      done < <(list_inputs)
+    for threads in ${THREADS_LIST}; do
+      THREADS="${threads}"
+      for mask in "${masks[@]}"; do
+        while IFS= read -r input; do
+          for ((run = 1; run <= WARMUPS; run++)); do
+            run_one "${flac_bin}" "${variant}" "${with_asm}" "${with_avx}" "${mask}" "${preset}" "${input}" "${run}" "warmup"
+          done
+          for ((run = 1; run <= RUNS; run++)); do
+            run_one "${flac_bin}" "${variant}" "${with_asm}" "${with_avx}" "${mask}" "${preset}" "${input}" "${run}" "measure"
+          done
+        done < <(list_inputs)
+      done
     done
   done
 }
