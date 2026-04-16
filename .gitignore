@@ -120,3 +120,4 @@ devenv.local.yaml
 !/bench/run_bench.sh
 !/bench/analyze.py
 !/bench/sbatch_run_bench.sh
+!/bench/profiles/*

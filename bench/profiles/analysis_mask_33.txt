@@ -1,0 +1,812 @@
+Flat profile:
+
+Each sample counts as 0.01 seconds.
+  %   cumulative   self              self     total           
+ time   seconds   seconds    calls   s/call   s/call  name    
+ 36.64      5.40     5.40   774120     0.00     0.00  FLAC__lpc_compute_autocorrelation_intrin_sse2_lag_14
+ 17.30      7.95     2.55   870885     0.00     0.00  FLAC__lpc_compute_residual_from_qlp_coefficients_16_intrin_avx2
+  6.11      8.85     0.90   290295     0.00     0.00  FLAC__lpc_compute_residual_from_qlp_coefficients_intrin_avx2
+  5.90      9.72     0.87  8257101     0.00     0.00  FLAC__MD5Transform
+  5.77     10.57     0.85  1387275     0.00     0.00  file_write_callback_
+  5.43     11.37     0.80   645100     0.00     0.00  FLAC__lpc_window_data_partial
+  4.95     12.10     0.73  1208261     0.00     0.00  FLAC__bitwriter_write_rice_signed_block
+  3.73     12.65     0.55  1290200     0.00     0.00  FLAC__precompute_partition_info_sums_intrin_avx2
+  2.92     13.08     0.43   129016     0.00     0.00  FLAC__fixed_compute_best_predictor_wide_intrin_avx2
+  1.76     13.34     0.26    64509     0.00     0.00  FLAC__stream_encoder_process
+  1.63     13.58     0.24  1161180     0.00     0.00  FLAC__lpc_compute_lp_coefficients
+  1.56     13.81     0.23    32255     0.00     0.00  process_subframes_
+  1.42     14.02     0.21    64509     0.00     0.00  format_input.constprop.21
+  0.88     14.15     0.13    32255     0.00     0.00  FLAC__crc16
+  0.81     14.27     0.12  1161180     0.00     0.00  FLAC__lpc_quantize_coefficients
+  0.75     14.38     0.11   129020     0.00     0.00  FLAC__lpc_window_data
+  0.61     14.47     0.09   129021     0.00     0.00  init_stream_internal_
+  0.61     14.56     0.09   129020     0.00     0.00  FLAC__fixed_compute_residual
+  0.54     14.64     0.08  1161180     0.00     0.00  FLAC__lpc_compute_best_order
+  0.20     14.67     0.03    64510     0.00     0.00  add_residual_partitioned_rice_
+  0.14     14.69     0.02    32255     0.00     0.00  FLAC__MD5Accumulate
+  0.14     14.71     0.02                             FLAC__lpc_compute_autocorrelation_intrin_sse2_lag_10
+  0.07     14.72     0.01  1161180     0.00     0.00  FLAC__lpc_compute_expected_bits_per_residual_sample
+  0.07     14.73     0.01        2     0.01     0.01  safe_malloc_mul_2op_p
+  0.07     14.74     0.01        1     0.01    14.72  flac__encode_file
+  0.00     14.74     0.00  2322360     0.00     0.00  FLAC__bitmath_silog2
+  0.00     14.74     0.00  1789050     0.00     0.00  FLAC__bitwriter_write_raw_uint32
+  0.00     14.74     0.00  1290200     0.00     0.00  FLAC__format_get_max_rice_partition_order_from_blocksize_limited_max_and_predictor_order
+  0.00     14.74     0.00  1161180     0.00     0.00  FLAC__lpc_max_prediction_before_shift_bps
+  0.00     14.74     0.00  1161180     0.00     0.00  FLAC__lpc_max_residual_bps
+  0.00     14.74     0.00   739319     0.00     0.00  FLAC__bitwriter_write_raw_int32
+  0.00     14.74     0.00   675081     0.00     0.00  FLAC__bitwriter_write_raw_int64
+  0.00     14.74     0.00    64388     0.00     0.00  FLAC__subframe_add_lpc
+  0.00     14.74     0.00    32260     0.00     0.00  FLAC__bitwriter_clear
+  0.00     14.74     0.00    32260     0.00     0.00  FLAC__bitwriter_get_buffer
+  0.00     14.74     0.00    32260     0.00     0.00  FLAC__bitwriter_release_buffer
+  0.00     14.74     0.00    32255     0.00     0.00  FLAC__bitwriter_get_write_crc16
+  0.00     14.74     0.00    32255     0.00     0.00  FLAC__bitwriter_get_write_crc8
+  0.00     14.74     0.00    32255     0.00     0.00  FLAC__bitwriter_write_utf8_uint32
+  0.00     14.74     0.00    32255     0.00     0.00  FLAC__bitwriter_zero_pad_to_byte_boundary
+  0.00     14.74     0.00    32255     0.00     0.00  FLAC__crc8
+  0.00     14.74     0.00    32255     0.00     0.00  FLAC__format_get_max_rice_partition_order_from_blocksize
+  0.00     14.74     0.00    32255     0.00     0.00  FLAC__frame_add_header
+  0.00     14.74     0.00    32255     0.00     0.00  encoder_progress_callback
+  0.00     14.74     0.00    32255     0.00     0.00  process_frame_
+  0.00     14.74     0.00      601     0.00     0.00  FLAC__bitwriter_write_raw_uint64
+  0.00     14.74     0.00      306     0.00     0.00  file_tell_callback_
+  0.00     14.74     0.00      122     0.00     0.00  FLAC__subframe_add_fixed
+  0.00     14.74     0.00       44     0.00     0.00  FLAC__format_entropy_coding_method_partitioned_rice_contents_clear
+  0.00     14.74     0.00       22     0.00     0.00  FLAC__format_entropy_coding_method_partitioned_rice_contents_init
+  0.00     14.74     0.00       14     0.00     0.00  FLAC__format_entropy_coding_method_partitioned_rice_contents_ensure_size
+  0.00     14.74     0.00       12     0.00     0.00  FLAC__memory_alloc_aligned_int32_array
+  0.00     14.74     0.00        8     0.00     0.00  FLAC__bitwriter_get_input_bits_unconsumed
+  0.00     14.74     0.00        4     0.00     0.00  FLAC__add_metadata_block
+  0.00     14.74     0.00        4     0.00     0.00  FLAC__fixed_compute_best_predictor_intrin_ssse3
+  0.00     14.74     0.00        4     0.00     0.00  file_seek_callback_
+  0.00     14.74     0.00        4     0.00     0.00  read_uint16
+  0.00     14.74     0.00        3     0.00     0.00  FLAC__stream_encoder_set_compression_level
+  0.00     14.74     0.00        3     0.00     0.00  read_bytes.constprop.23
+  0.00     14.74     0.00        3     0.00     0.00  static_metadata_append
+  0.00     14.74     0.00        2     0.00     0.00  FLAC__bitwriter_write_byte_block
+  0.00     14.74     0.00        2     0.00     0.00  FLAC__bitwriter_write_raw_uint32_little_endian
+  0.00     14.74     0.00        2     0.00     0.00  FLAC__format_sample_rate_is_valid
+  0.00     14.74     0.00        2     0.00     0.00  FLAC__format_seektable_is_legal
+  0.00     14.74     0.00        2     0.00     0.00  FLAC__format_seektable_sort
+  0.00     14.74     0.00        2     0.00     0.00  FLAC__memory_alloc_aligned_real_array
+  0.00     14.74     0.00        2     0.00     0.00  FLAC__metadata_object_seektable_resize_points
+  0.00     14.74     0.00        2     0.00     0.00  FLAC__stream_encoder_finish
+  0.00     14.74     0.00        2     0.00     0.00  FLAC__stream_encoder_get_state
+  0.00     14.74     0.00        2     0.00     0.00  FLAC__window_tukey
+  0.00     14.74     0.00        2     0.00     0.00  flac__utils_canonicalize_skip_until_specification
+  0.00     14.74     0.00        2     0.00     0.00  flac__utils_parse_skip_until_specification
+  0.00     14.74     0.00        2     0.00     0.00  flac__utils_printf
+  0.00     14.74     0.00        2     0.00     0.00  fskip_ahead
+  0.00     14.74     0.00        2     0.00     0.00  set_defaults_
+  0.00     14.74     0.00        2     0.00     0.00  verify_read_callback_
+  0.00     14.74     0.00        1     0.00     0.01  EncoderSession_init_encoder
+  0.00     14.74     0.00        1     0.00     0.00  FLAC__MD5Final
+  0.00     14.74     0.00        1     0.00     0.00  FLAC__MD5Init
+  0.00     14.74     0.00        1     0.00     0.00  FLAC__bitwriter_delete
+  0.00     14.74     0.00        1     0.00     0.00  FLAC__bitwriter_init
+  0.00     14.74     0.00        1     0.00     0.00  FLAC__bitwriter_new
+  0.00     14.74     0.00        1     0.00     0.00  FLAC__bitwriter_write_zeroes
+  0.00     14.74     0.00        1     0.00     0.00  FLAC__cpu_info
+  0.00     14.74     0.00        1     0.00     0.00  FLAC__format_blocksize_is_subset
+  0.00     14.74     0.00        1     0.00     0.00  FLAC__format_sample_rate_is_subset
+  0.00     14.74     0.00        1     0.00     0.00  FLAC__memory_alloc_aligned_int64_array
+  0.00     14.74     0.00        1     0.00     0.00  FLAC__memory_alloc_aligned_uint64_array
+  0.00     14.74     0.00        1     0.00     0.00  FLAC__metadata_object_delete
+  0.00     14.74     0.00        1     0.00     0.00  FLAC__metadata_object_new
+  0.00     14.74     0.00        1     0.00     0.00  FLAC__metadata_object_seektable_template_append_spaced_points_by_samples
+  0.00     14.74     0.00        1     0.00     0.00  FLAC__metadata_object_seektable_template_sort
+  0.00     14.74     0.00        1     0.00     0.00  FLAC__stream_encoder_delete
+  0.00     14.74     0.00        1     0.00     0.00  FLAC__stream_encoder_disable_constant_subframes
+  0.00     14.74     0.00        1     0.00     0.00  FLAC__stream_encoder_disable_fixed_subframes
+  0.00     14.74     0.00        1     0.00     0.00  FLAC__stream_encoder_disable_instruction_set
+  0.00     14.74     0.00        1     0.00     0.00  FLAC__stream_encoder_disable_verbatim_subframes
+  0.00     14.74     0.00        1     0.00     0.00  FLAC__stream_encoder_init_file
+  0.00     14.74     0.00        1     0.00     0.00  FLAC__stream_encoder_new
+  0.00     14.74     0.00        1     0.00     0.00  FLAC__stream_encoder_set_bits_per_sample
+  0.00     14.74     0.00        1     0.00     0.00  FLAC__stream_encoder_set_channels
+  0.00     14.74     0.00        1     0.00     0.00  FLAC__stream_encoder_set_limit_min_bitrate
+  0.00     14.74     0.00        1     0.00     0.01  FLAC__stream_encoder_set_metadata
+  0.00     14.74     0.00        1     0.00     0.00  FLAC__stream_encoder_set_sample_rate
+  0.00     14.74     0.00        1     0.00     0.00  FLAC__stream_encoder_set_streamable_subset
+  0.00     14.74     0.00        1     0.00     0.00  FLAC__stream_encoder_set_total_samples_estimate
+  0.00     14.74     0.00        1     0.00     0.00  FLAC__stream_encoder_set_verify
+  0.00     14.74     0.00        1     0.00     0.00  bitwriter_grow_
+  0.00     14.74     0.00        1     0.00     0.00  grabbag__file_are_same
+  0.00     14.74     0.00        1     0.00     0.00  grabbag__file_copy_metadata
+  0.00     14.74     0.00        1     0.00     0.00  grabbag__file_get_basename
+  0.00     14.74     0.00        1     0.00     0.00  grabbag__file_get_filesize
+  0.00     14.74     0.00        1     0.00     0.01  grabbag__seektable_convert_specification_to_template
+  0.00     14.74     0.00        1     0.00     0.00  read_uint32
+  0.00     14.74     0.00        1     0.00     0.00  stats_new_line
+
+ %         the percentage of the total running time of the
+time       program used by this function.
+
+cumulative a running sum of the number of seconds accounted
+ seconds   for by this function and those listed above it.
+
+ self      the number of seconds accounted for by this
+seconds    function alone.  This is the major sort for this
+           listing.
+
+calls      the number of times this function was invoked, if
+           this function is profiled, else blank.
+
+ self      the average number of milliseconds spent in this
+ms/call    function per call, if this function is profiled,
+	   else blank.
+
+ total     the average number of milliseconds spent in this
+ms/call    function and its descendents per call, if this
+	   function is profiled, else blank.
+
+name       the name of the function.  This is the minor sort
+           for this listing. The index shows the location of
+	   the function in the gprof listing. If the index is
+	   in parenthesis it shows where it would appear in
+	   the gprof listing if it were to be printed.
+
+Copyright (C) 2012-2018 Free Software Foundation, Inc.
+
+Copying and distribution of this file, with or without modification,
+are permitted in any medium without royalty provided the copyright
+notice and this notice are preserved.
+
+		     Call graph (explanation follows)
+
+
+granularity: each sample hit covers 2 byte(s) for 0.07% of 14.74 seconds
+
+index % time    self  children    called     name
+                0.01   14.71       1/1           encode_file [2]
+[1]     99.9    0.01   14.71       1         flac__encode_file [1]
+                0.26   14.23   64509/64509       FLAC__stream_encoder_process [3]
+                0.21    0.00   64509/64509       format_input.constprop.21 [20]
+                0.00    0.01       1/1           EncoderSession_init_encoder [28]
+                0.00    0.00       1/2           FLAC__stream_encoder_finish [37]
+                0.00    0.00       1/1           FLAC__stream_encoder_delete [38]
+                0.00    0.00       1/1           FLAC__stream_encoder_new [41]
+                0.00    0.00       2/2           flac__utils_canonicalize_skip_until_specification [81]
+                0.00    0.00       2/2           FLAC__stream_encoder_get_state [79]
+                0.00    0.00       1/1           grabbag__file_get_basename [113]
+                0.00    0.00       1/1           FLAC__metadata_object_new [98]
+                0.00    0.00       1/1           read_uint32 [115]
+                0.00    0.00       1/2           FLAC__format_sample_rate_is_valid [75]
+                0.00    0.00       1/1           FLAC__metadata_object_delete [97]
+                0.00    0.00       1/1           stats_new_line [116]
+                0.00    0.00       1/2           flac__utils_printf [83]
+-----------------------------------------------
+                                                 <spontaneous>
+[2]     99.9    0.00   14.72                 encode_file [2]
+                0.01   14.71       1/1           flac__encode_file [1]
+                0.00    0.00       2/2           flac__utils_parse_skip_until_specification [82]
+                0.00    0.00       1/1           grabbag__file_get_filesize [114]
+                0.00    0.00       1/1           grabbag__file_are_same [111]
+                0.00    0.00       1/1           grabbag__file_copy_metadata [112]
+-----------------------------------------------
+                0.26   14.23   64509/64509       flac__encode_file [1]
+[3]     98.3    0.26   14.23   64509         FLAC__stream_encoder_process [3]
+                0.00   14.23   32254/32255       process_frame_ [4]
+-----------------------------------------------
+                0.00    0.00       1/32255       FLAC__stream_encoder_finish [37]
+                0.00   14.23   32254/32255       FLAC__stream_encoder_process [3]
+[4]     96.5    0.00   14.23   32255         process_frame_ [4]
+                0.23   12.93   32255/32255       process_subframes_ [5]
+                0.02    0.87   32255/32255       FLAC__MD5Accumulate [11]
+                0.00    0.13   32255/32255       FLAC__bitwriter_get_write_crc16 [21]
+                0.02    0.03   32255/1387275     file_write_callback_ [9]
+                0.00    0.00   32255/32255       FLAC__bitwriter_zero_pad_to_byte_boundary [55]
+                0.00    0.00   32255/1789050     FLAC__bitwriter_write_raw_uint32 [44]
+-----------------------------------------------
+                0.23   12.93   32255/32255       process_frame_ [4]
+[5]     89.3    0.23   12.93   32255         process_subframes_ [5]
+                0.09   12.74  129020/129021      init_stream_internal_ [6]
+                0.04    0.06   64510/1387275     file_write_callback_ [9]
+                0.00    0.00   32255/32255       FLAC__format_get_max_rice_partition_order_from_blocksize [57]
+                0.00    0.00   32255/32255       FLAC__frame_add_header [58]
+-----------------------------------------------
+                0.00    0.00       1/129021      FLAC__stream_encoder_init_file [39]
+                0.09   12.74  129020/129021      process_subframes_ [5]
+[6]     87.0    0.09   12.74  129021         init_stream_internal_ [6]
+                5.40    0.00  774120/774120      FLAC__lpc_compute_autocorrelation_intrin_sse2_lag_14 [7]
+                2.55    0.00  870885/870885      FLAC__lpc_compute_residual_from_qlp_coefficients_16_intrin_avx2 [8]
+                0.79    1.22 1290205/1387275     file_write_callback_ [9]
+                0.90    0.00  290295/290295      FLAC__lpc_compute_residual_from_qlp_coefficients_intrin_avx2 [10]
+                0.80    0.00  645100/645100      FLAC__lpc_window_data_partial [13]
+                0.43    0.00  129016/129016      FLAC__fixed_compute_best_predictor_wide_intrin_avx2 [18]
+                0.24    0.00 1161180/1161180     FLAC__lpc_compute_lp_coefficients [19]
+                0.12    0.00 1161180/1161180     FLAC__lpc_quantize_coefficients [23]
+                0.11    0.00  129020/129020      FLAC__lpc_window_data [24]
+                0.09    0.00  129020/129020      FLAC__fixed_compute_residual [25]
+                0.08    0.00 1161180/1161180     FLAC__lpc_compute_best_order [26]
+                0.01    0.00 1161180/1161180     FLAC__lpc_compute_expected_bits_per_residual_sample [29]
+                0.00    0.00 2322360/2322360     FLAC__bitmath_silog2 [43]
+                0.00    0.00 1161180/1161180     FLAC__lpc_max_residual_bps [47]
+                0.00    0.00 1161180/1161180     FLAC__lpc_max_prediction_before_shift_bps [46]
+                0.00    0.00       4/4           FLAC__add_metadata_block [67]
+                0.00    0.00       4/4           FLAC__fixed_compute_best_predictor_intrin_ssse3 [68]
+                0.00    0.00       1/2           FLAC__format_sample_rate_is_valid [75]
+                0.00    0.00       1/1           FLAC__cpu_info [92]
+                0.00    0.00       1/1           FLAC__format_blocksize_is_subset [93]
+                0.00    0.00       1/1           FLAC__format_sample_rate_is_subset [94]
+                0.00    0.00       1/2           FLAC__format_seektable_is_legal [76]
+                0.00    0.00       1/2           verify_read_callback_ [86]
+                0.00    0.00       1/1           FLAC__bitwriter_init [89]
+                0.00    0.00       1/1789050     FLAC__bitwriter_write_raw_uint32 [44]
+                0.00    0.00       1/1           FLAC__MD5Init [87]
+                0.00    0.00       1/306         file_tell_callback_ [61]
+-----------------------------------------------
+                5.40    0.00  774120/774120      init_stream_internal_ [6]
+[7]     36.6    5.40    0.00  774120         FLAC__lpc_compute_autocorrelation_intrin_sse2_lag_14 [7]
+-----------------------------------------------
+                2.55    0.00  870885/870885      init_stream_internal_ [6]
+[8]     17.3    2.55    0.00  870885         FLAC__lpc_compute_residual_from_qlp_coefficients_16_intrin_avx2 [8]
+-----------------------------------------------
+                               32260             file_write_callback_ [9]
+                0.00    0.00       2/1387275     FLAC__stream_encoder_set_compression_level [40]
+                0.00    0.00     303/1387275     FLAC__stream_encoder_finish [37]
+                0.02    0.03   32255/1387275     process_frame_ [4]
+                0.04    0.06   64510/1387275     process_subframes_ [5]
+                0.79    1.22 1290205/1387275     init_stream_internal_ [6]
+[9]     14.7    0.85    1.31 1387275+32260   file_write_callback_ [9]
+                0.00    0.76   64388/64388       FLAC__subframe_add_lpc [15]
+                0.55    0.00 1290200/1290200     FLAC__precompute_partition_info_sums_intrin_avx2 [17]
+                0.00    0.00     122/122         FLAC__subframe_add_fixed [36]
+                0.00    0.00 1290200/1290200     FLAC__format_get_max_rice_partition_order_from_blocksize_limited_max_and_predictor_order [45]
+                0.00    0.00   32260/32260       FLAC__bitwriter_get_buffer [51]
+                0.00    0.00   32260/32260       FLAC__bitwriter_clear [50]
+                0.00    0.00   32260/32260       FLAC__bitwriter_release_buffer [52]
+                0.00    0.00   32255/32255       encoder_progress_callback [59]
+                0.00    0.00     305/306         file_tell_callback_ [61]
+                               32260             file_write_callback_ [9]
+-----------------------------------------------
+                0.90    0.00  290295/290295      init_stream_internal_ [6]
+[10]     6.1    0.90    0.00  290295         FLAC__lpc_compute_residual_from_qlp_coefficients_intrin_avx2 [10]
+-----------------------------------------------
+                0.02    0.87   32255/32255       process_frame_ [4]
+[11]     6.0    0.02    0.87   32255         FLAC__MD5Accumulate [11]
+                0.87    0.00 8257100/8257101     FLAC__MD5Transform [12]
+-----------------------------------------------
+                0.00    0.00       1/8257101     FLAC__MD5Final [42]
+                0.87    0.00 8257100/8257101     FLAC__MD5Accumulate [11]
+[12]     5.9    0.87    0.00 8257101         FLAC__MD5Transform [12]
+-----------------------------------------------
+                0.80    0.00  645100/645100      init_stream_internal_ [6]
+[13]     5.4    0.80    0.00  645100         FLAC__lpc_window_data_partial [13]
+-----------------------------------------------
+                0.00    0.00     122/64510       FLAC__subframe_add_fixed [36]
+                0.03    0.73   64388/64510       FLAC__subframe_add_lpc [15]
+[14]     5.2    0.03    0.73   64510         add_residual_partitioned_rice_ [14]
+                0.73    0.00 1208261/1208261     FLAC__bitwriter_write_rice_signed_block [16]
+                0.00    0.00 1208261/1789050     FLAC__bitwriter_write_raw_uint32 [44]
+-----------------------------------------------
+                0.00    0.76   64388/64388       file_write_callback_ [9]
+[15]     5.1    0.00    0.76   64388         FLAC__subframe_add_lpc [15]
+                0.03    0.73   64388/64510       add_residual_partitioned_rice_ [14]
+                0.00    0.00  739319/739319      FLAC__bitwriter_write_raw_int32 [48]
+                0.00    0.00  674931/675081      FLAC__bitwriter_write_raw_int64 [49]
+                0.00    0.00  257552/1789050     FLAC__bitwriter_write_raw_uint32 [44]
+-----------------------------------------------
+                0.73    0.00 1208261/1208261     add_residual_partitioned_rice_ [14]
+[16]     5.0    0.73    0.00 1208261         FLAC__bitwriter_write_rice_signed_block [16]
+-----------------------------------------------
+                0.55    0.00 1290200/1290200     file_write_callback_ [9]
+[17]     3.7    0.55    0.00 1290200         FLAC__precompute_partition_info_sums_intrin_avx2 [17]
+-----------------------------------------------
+                0.43    0.00  129016/129016      init_stream_internal_ [6]
+[18]     2.9    0.43    0.00  129016         FLAC__fixed_compute_best_predictor_wide_intrin_avx2 [18]
+-----------------------------------------------
+                0.24    0.00 1161180/1161180     init_stream_internal_ [6]
+[19]     1.6    0.24    0.00 1161180         FLAC__lpc_compute_lp_coefficients [19]
+-----------------------------------------------
+                0.21    0.00   64509/64509       flac__encode_file [1]
+[20]     1.4    0.21    0.00   64509         format_input.constprop.21 [20]
+-----------------------------------------------
+                0.00    0.13   32255/32255       process_frame_ [4]
+[21]     0.9    0.00    0.13   32255         FLAC__bitwriter_get_write_crc16 [21]
+                0.13    0.00   32255/32255       FLAC__crc16 [22]
+-----------------------------------------------
+                0.13    0.00   32255/32255       FLAC__bitwriter_get_write_crc16 [21]
+[22]     0.9    0.13    0.00   32255         FLAC__crc16 [22]
+-----------------------------------------------
+                0.12    0.00 1161180/1161180     init_stream_internal_ [6]
+[23]     0.8    0.12    0.00 1161180         FLAC__lpc_quantize_coefficients [23]
+-----------------------------------------------
+                0.11    0.00  129020/129020      init_stream_internal_ [6]
+[24]     0.7    0.11    0.00  129020         FLAC__lpc_window_data [24]
+-----------------------------------------------
+                0.09    0.00  129020/129020      init_stream_internal_ [6]
+[25]     0.6    0.09    0.00  129020         FLAC__fixed_compute_residual [25]
+-----------------------------------------------
+                0.08    0.00 1161180/1161180     init_stream_internal_ [6]
+[26]     0.5    0.08    0.00 1161180         FLAC__lpc_compute_best_order [26]
+-----------------------------------------------
+                                                 <spontaneous>
+[27]     0.1    0.02    0.00                 FLAC__lpc_compute_autocorrelation_intrin_sse2_lag_10 [27]
+-----------------------------------------------
+                0.00    0.01       1/1           flac__encode_file [1]
+[28]     0.1    0.00    0.01       1         EncoderSession_init_encoder [28]
+                0.00    0.01       1/1           grabbag__seektable_convert_specification_to_template [33]
+                0.00    0.01       1/1           FLAC__stream_encoder_set_metadata [32]
+                0.00    0.00       1/1           FLAC__stream_encoder_init_file [39]
+                0.00    0.00       1/3           FLAC__stream_encoder_set_compression_level [40]
+                0.00    0.00       3/3           static_metadata_append [72]
+                0.00    0.00       1/2           FLAC__format_seektable_is_legal [76]
+                0.00    0.00       1/1           FLAC__stream_encoder_set_verify [109]
+                0.00    0.00       1/1           FLAC__stream_encoder_set_streamable_subset [107]
+                0.00    0.00       1/1           FLAC__stream_encoder_set_channels [104]
+                0.00    0.00       1/1           FLAC__stream_encoder_set_bits_per_sample [103]
+                0.00    0.00       1/1           FLAC__stream_encoder_set_sample_rate [106]
+                0.00    0.00       1/1           FLAC__stream_encoder_set_total_samples_estimate [108]
+                0.00    0.00       1/1           FLAC__stream_encoder_set_limit_min_bitrate [105]
+                0.00    0.00       1/1           FLAC__stream_encoder_disable_constant_subframes [99]
+                0.00    0.00       1/1           FLAC__stream_encoder_disable_fixed_subframes [100]
+                0.00    0.00       1/1           FLAC__stream_encoder_disable_verbatim_subframes [102]
+                0.00    0.00       1/1           FLAC__stream_encoder_disable_instruction_set [101]
+-----------------------------------------------
+                0.01    0.00 1161180/1161180     init_stream_internal_ [6]
+[29]     0.1    0.01    0.00 1161180         FLAC__lpc_compute_expected_bits_per_residual_sample [29]
+-----------------------------------------------
+                0.01    0.00       1/2           FLAC__metadata_object_seektable_resize_points [31]
+                0.01    0.00       1/2           FLAC__stream_encoder_set_metadata [32]
+[30]     0.1    0.01    0.00       2         safe_malloc_mul_2op_p [30]
+-----------------------------------------------
+                0.00    0.00       1/2           FLAC__metadata_object_seektable_template_append_spaced_points_by_samples [34]
+                0.00    0.00       1/2           FLAC__metadata_object_seektable_template_sort [35]
+[31]     0.0    0.00    0.01       2         FLAC__metadata_object_seektable_resize_points [31]
+                0.01    0.00       1/2           safe_malloc_mul_2op_p [30]
+-----------------------------------------------
+                0.00    0.01       1/1           EncoderSession_init_encoder [28]
+[32]     0.0    0.00    0.01       1         FLAC__stream_encoder_set_metadata [32]
+                0.01    0.00       1/2           safe_malloc_mul_2op_p [30]
+-----------------------------------------------
+                0.00    0.01       1/1           EncoderSession_init_encoder [28]
+[33]     0.0    0.00    0.01       1         grabbag__seektable_convert_specification_to_template [33]
+                0.00    0.00       1/1           FLAC__metadata_object_seektable_template_sort [35]
+                0.00    0.00       1/1           FLAC__metadata_object_seektable_template_append_spaced_points_by_samples [34]
+-----------------------------------------------
+                0.00    0.00       1/1           grabbag__seektable_convert_specification_to_template [33]
+[34]     0.0    0.00    0.00       1         FLAC__metadata_object_seektable_template_append_spaced_points_by_samples [34]
+                0.00    0.00       1/2           FLAC__metadata_object_seektable_resize_points [31]
+-----------------------------------------------
+                0.00    0.00       1/1           grabbag__seektable_convert_specification_to_template [33]
+[35]     0.0    0.00    0.00       1         FLAC__metadata_object_seektable_template_sort [35]
+                0.00    0.00       1/2           FLAC__metadata_object_seektable_resize_points [31]
+                0.00    0.00       1/2           FLAC__format_seektable_sort [77]
+-----------------------------------------------
+                0.00    0.00     122/122         file_write_callback_ [9]
+[36]     0.0    0.00    0.00     122         FLAC__subframe_add_fixed [36]
+                0.00    0.00     122/64510       add_residual_partitioned_rice_ [14]
+                0.00    0.00     366/1789050     FLAC__bitwriter_write_raw_uint32 [44]
+                0.00    0.00     150/675081      FLAC__bitwriter_write_raw_int64 [49]
+-----------------------------------------------
+                0.00    0.00       1/2           flac__encode_file [1]
+                0.00    0.00       1/2           FLAC__stream_encoder_delete [38]
+[37]     0.0    0.00    0.00       2         FLAC__stream_encoder_finish [37]
+                0.00    0.00     303/1387275     file_write_callback_ [9]
+                0.00    0.00       1/32255       process_frame_ [4]
+                0.00    0.00       1/3           FLAC__stream_encoder_set_compression_level [40]
+                0.00    0.00       1/1           FLAC__MD5Final [42]
+                0.00    0.00      22/44          FLAC__format_entropy_coding_method_partitioned_rice_contents_clear [62]
+                0.00    0.00       4/4           file_seek_callback_ [69]
+                0.00    0.00       1/2           set_defaults_ [85]
+                0.00    0.00       1/2           FLAC__format_seektable_sort [77]
+                0.00    0.00       1/2           verify_read_callback_ [86]
+-----------------------------------------------
+                0.00    0.00       1/1           flac__encode_file [1]
+[38]     0.0    0.00    0.00       1         FLAC__stream_encoder_delete [38]
+                0.00    0.00       1/2           FLAC__stream_encoder_finish [37]
+                0.00    0.00      22/44          FLAC__format_entropy_coding_method_partitioned_rice_contents_clear [62]
+                0.00    0.00       1/1           FLAC__bitwriter_delete [88]
+-----------------------------------------------
+                0.00    0.00       1/1           EncoderSession_init_encoder [28]
+[39]     0.0    0.00    0.00       1         FLAC__stream_encoder_init_file [39]
+                0.00    0.00       1/129021      init_stream_internal_ [6]
+-----------------------------------------------
+                0.00    0.00       1/3           EncoderSession_init_encoder [28]
+                0.00    0.00       1/3           FLAC__stream_encoder_new [41]
+                0.00    0.00       1/3           FLAC__stream_encoder_finish [37]
+[40]     0.0    0.00    0.00       3         FLAC__stream_encoder_set_compression_level [40]
+                0.00    0.00       2/1387275     file_write_callback_ [9]
+-----------------------------------------------
+                0.00    0.00       1/1           flac__encode_file [1]
+[41]     0.0    0.00    0.00       1         FLAC__stream_encoder_new [41]
+                0.00    0.00       1/3           FLAC__stream_encoder_set_compression_level [40]
+                0.00    0.00      22/22          FLAC__format_entropy_coding_method_partitioned_rice_contents_init [63]
+                0.00    0.00       1/1           FLAC__bitwriter_new [90]
+                0.00    0.00       1/2           set_defaults_ [85]
+-----------------------------------------------
+                0.00    0.00       1/1           FLAC__stream_encoder_finish [37]
+[42]     0.0    0.00    0.00       1         FLAC__MD5Final [42]
+                0.00    0.00       1/8257101     FLAC__MD5Transform [12]
+-----------------------------------------------
+                0.00    0.00 2322360/2322360     init_stream_internal_ [6]
+[43]     0.0    0.00    0.00 2322360         FLAC__bitmath_silog2 [43]
+-----------------------------------------------
+                0.00    0.00       1/1789050     init_stream_internal_ [6]
+                0.00    0.00     319/1789050     FLAC__add_metadata_block [67]
+                0.00    0.00     366/1789050     FLAC__subframe_add_fixed [36]
+                0.00    0.00   32255/1789050     process_frame_ [4]
+                0.00    0.00  257552/1789050     FLAC__subframe_add_lpc [15]
+                0.00    0.00  290296/1789050     FLAC__frame_add_header [58]
+                0.00    0.00 1208261/1789050     add_residual_partitioned_rice_ [14]
+[44]     0.0    0.00    0.00 1789050         FLAC__bitwriter_write_raw_uint32 [44]
+-----------------------------------------------
+                0.00    0.00 1290200/1290200     file_write_callback_ [9]
+[45]     0.0    0.00    0.00 1290200         FLAC__format_get_max_rice_partition_order_from_blocksize_limited_max_and_predictor_order [45]
+-----------------------------------------------
+                0.00    0.00 1161180/1161180     init_stream_internal_ [6]
+[46]     0.0    0.00    0.00 1161180         FLAC__lpc_max_prediction_before_shift_bps [46]
+-----------------------------------------------
+                0.00    0.00 1161180/1161180     init_stream_internal_ [6]
+[47]     0.0    0.00    0.00 1161180         FLAC__lpc_max_residual_bps [47]
+-----------------------------------------------
+                0.00    0.00  739319/739319      FLAC__subframe_add_lpc [15]
+[48]     0.0    0.00    0.00  739319         FLAC__bitwriter_write_raw_int32 [48]
+-----------------------------------------------
+                0.00    0.00     150/675081      FLAC__subframe_add_fixed [36]
+                0.00    0.00  674931/675081      FLAC__subframe_add_lpc [15]
+[49]     0.0    0.00    0.00  675081         FLAC__bitwriter_write_raw_int64 [49]
+-----------------------------------------------
+                0.00    0.00   32260/32260       file_write_callback_ [9]
+[50]     0.0    0.00    0.00   32260         FLAC__bitwriter_clear [50]
+-----------------------------------------------
+                0.00    0.00   32260/32260       file_write_callback_ [9]
+[51]     0.0    0.00    0.00   32260         FLAC__bitwriter_get_buffer [51]
+-----------------------------------------------
+                0.00    0.00   32260/32260       file_write_callback_ [9]
+[52]     0.0    0.00    0.00   32260         FLAC__bitwriter_release_buffer [52]
+-----------------------------------------------
+                0.00    0.00   32255/32255       FLAC__frame_add_header [58]
+[53]     0.0    0.00    0.00   32255         FLAC__bitwriter_get_write_crc8 [53]
+                0.00    0.00   32255/32255       FLAC__crc8 [56]
+-----------------------------------------------
+                0.00    0.00   32255/32255       FLAC__frame_add_header [58]
+[54]     0.0    0.00    0.00   32255         FLAC__bitwriter_write_utf8_uint32 [54]
+-----------------------------------------------
+                0.00    0.00   32255/32255       process_frame_ [4]
+[55]     0.0    0.00    0.00   32255         FLAC__bitwriter_zero_pad_to_byte_boundary [55]
+-----------------------------------------------
+                0.00    0.00   32255/32255       FLAC__bitwriter_get_write_crc8 [53]
+[56]     0.0    0.00    0.00   32255         FLAC__crc8 [56]
+-----------------------------------------------
+                0.00    0.00   32255/32255       process_subframes_ [5]
+[57]     0.0    0.00    0.00   32255         FLAC__format_get_max_rice_partition_order_from_blocksize [57]
+-----------------------------------------------
+                0.00    0.00   32255/32255       process_subframes_ [5]
+[58]     0.0    0.00    0.00   32255         FLAC__frame_add_header [58]
+                0.00    0.00  290296/1789050     FLAC__bitwriter_write_raw_uint32 [44]
+                0.00    0.00   32255/32255       FLAC__bitwriter_write_utf8_uint32 [54]
+                0.00    0.00   32255/32255       FLAC__bitwriter_get_write_crc8 [53]
+-----------------------------------------------
+                0.00    0.00   32255/32255       file_write_callback_ [9]
+[59]     0.0    0.00    0.00   32255         encoder_progress_callback [59]
+-----------------------------------------------
+                0.00    0.00     601/601         FLAC__add_metadata_block [67]
+[60]     0.0    0.00    0.00     601         FLAC__bitwriter_write_raw_uint64 [60]
+-----------------------------------------------
+                0.00    0.00       1/306         init_stream_internal_ [6]
+                0.00    0.00     305/306         file_write_callback_ [9]
+[61]     0.0    0.00    0.00     306         file_tell_callback_ [61]
+-----------------------------------------------
+                0.00    0.00      22/44          FLAC__stream_encoder_finish [37]
+                0.00    0.00      22/44          FLAC__stream_encoder_delete [38]
+[62]     0.0    0.00    0.00      44         FLAC__format_entropy_coding_method_partitioned_rice_contents_clear [62]
+-----------------------------------------------
+                0.00    0.00      22/22          FLAC__stream_encoder_new [41]
+[63]     0.0    0.00    0.00      22         FLAC__format_entropy_coding_method_partitioned_rice_contents_init [63]
+-----------------------------------------------
+                0.00    0.00      14/14          verify_read_callback_ [86]
+[64]     0.0    0.00    0.00      14         FLAC__format_entropy_coding_method_partitioned_rice_contents_ensure_size [64]
+-----------------------------------------------
+                0.00    0.00      12/12          verify_read_callback_ [86]
+[65]     0.0    0.00    0.00      12         FLAC__memory_alloc_aligned_int32_array [65]
+-----------------------------------------------
+                0.00    0.00       8/8           FLAC__add_metadata_block [67]
+[66]     0.0    0.00    0.00       8         FLAC__bitwriter_get_input_bits_unconsumed [66]
+-----------------------------------------------
+                0.00    0.00       4/4           init_stream_internal_ [6]
+[67]     0.0    0.00    0.00       4         FLAC__add_metadata_block [67]
+                0.00    0.00     601/601         FLAC__bitwriter_write_raw_uint64 [60]
+                0.00    0.00     319/1789050     FLAC__bitwriter_write_raw_uint32 [44]
+                0.00    0.00       8/8           FLAC__bitwriter_get_input_bits_unconsumed [66]
+                0.00    0.00       2/2           FLAC__bitwriter_write_raw_uint32_little_endian [74]
+                0.00    0.00       2/2           FLAC__bitwriter_write_byte_block [73]
+                0.00    0.00       1/1           FLAC__bitwriter_write_zeroes [91]
+-----------------------------------------------
+                0.00    0.00       4/4           init_stream_internal_ [6]
+[68]     0.0    0.00    0.00       4         FLAC__fixed_compute_best_predictor_intrin_ssse3 [68]
+-----------------------------------------------
+                0.00    0.00       4/4           FLAC__stream_encoder_finish [37]
+[69]     0.0    0.00    0.00       4         file_seek_callback_ [69]
+-----------------------------------------------
+                0.00    0.00       4/4           read_uint32 [115]
+[70]     0.0    0.00    0.00       4         read_uint16 [70]
+-----------------------------------------------
+                0.00    0.00       3/3           read_uint32 [115]
+[71]     0.0    0.00    0.00       3         read_bytes.constprop.23 [71]
+-----------------------------------------------
+                0.00    0.00       3/3           EncoderSession_init_encoder [28]
+[72]     0.0    0.00    0.00       3         static_metadata_append [72]
+-----------------------------------------------
+                0.00    0.00       2/2           FLAC__add_metadata_block [67]
+[73]     0.0    0.00    0.00       2         FLAC__bitwriter_write_byte_block [73]
+-----------------------------------------------
+                0.00    0.00       2/2           FLAC__add_metadata_block [67]
+[74]     0.0    0.00    0.00       2         FLAC__bitwriter_write_raw_uint32_little_endian [74]
+-----------------------------------------------
+                0.00    0.00       1/2           flac__encode_file [1]
+                0.00    0.00       1/2           init_stream_internal_ [6]
+[75]     0.0    0.00    0.00       2         FLAC__format_sample_rate_is_valid [75]
+-----------------------------------------------
+                0.00    0.00       1/2           EncoderSession_init_encoder [28]
+                0.00    0.00       1/2           init_stream_internal_ [6]
+[76]     0.0    0.00    0.00       2         FLAC__format_seektable_is_legal [76]
+-----------------------------------------------
+                0.00    0.00       1/2           FLAC__metadata_object_seektable_template_sort [35]
+                0.00    0.00       1/2           FLAC__stream_encoder_finish [37]
+[77]     0.0    0.00    0.00       2         FLAC__format_seektable_sort [77]
+-----------------------------------------------
+                0.00    0.00       2/2           verify_read_callback_ [86]
+[78]     0.0    0.00    0.00       2         FLAC__memory_alloc_aligned_real_array [78]
+-----------------------------------------------
+                0.00    0.00       2/2           flac__encode_file [1]
+[79]     0.0    0.00    0.00       2         FLAC__stream_encoder_get_state [79]
+-----------------------------------------------
+                0.00    0.00       2/2           verify_read_callback_ [86]
+[80]     0.0    0.00    0.00       2         FLAC__window_tukey [80]
+-----------------------------------------------
+                0.00    0.00       2/2           flac__encode_file [1]
+[81]     0.0    0.00    0.00       2         flac__utils_canonicalize_skip_until_specification [81]
+-----------------------------------------------
+                0.00    0.00       2/2           encode_file [2]
+[82]     0.0    0.00    0.00       2         flac__utils_parse_skip_until_specification [82]
+-----------------------------------------------
+                0.00    0.00       1/2           read_uint32 [115]
+                0.00    0.00       1/2           flac__encode_file [1]
+[83]     0.0    0.00    0.00       2         flac__utils_printf [83]
+-----------------------------------------------
+                0.00    0.00       2/2           read_uint32 [115]
+[84]     0.0    0.00    0.00       2         fskip_ahead [84]
+-----------------------------------------------
+                0.00    0.00       1/2           FLAC__stream_encoder_new [41]
+                0.00    0.00       1/2           FLAC__stream_encoder_finish [37]
+[85]     0.0    0.00    0.00       2         set_defaults_ [85]
+-----------------------------------------------
+                0.00    0.00       1/2           init_stream_internal_ [6]
+                0.00    0.00       1/2           FLAC__stream_encoder_finish [37]
+[86]     0.0    0.00    0.00       2         verify_read_callback_ [86]
+                0.00    0.00      14/14          FLAC__format_entropy_coding_method_partitioned_rice_contents_ensure_size [64]
+                0.00    0.00      12/12          FLAC__memory_alloc_aligned_int32_array [65]
+                0.00    0.00       2/2           FLAC__memory_alloc_aligned_real_array [78]
+                0.00    0.00       2/2           FLAC__window_tukey [80]
+                0.00    0.00       1/1           FLAC__memory_alloc_aligned_int64_array [95]
+                0.00    0.00       1/1           FLAC__memory_alloc_aligned_uint64_array [96]
+-----------------------------------------------
+                0.00    0.00       1/1           init_stream_internal_ [6]
+[87]     0.0    0.00    0.00       1         FLAC__MD5Init [87]
+-----------------------------------------------
+                0.00    0.00       1/1           FLAC__stream_encoder_delete [38]
+[88]     0.0    0.00    0.00       1         FLAC__bitwriter_delete [88]
+-----------------------------------------------
+                0.00    0.00       1/1           init_stream_internal_ [6]
+[89]     0.0    0.00    0.00       1         FLAC__bitwriter_init [89]
+-----------------------------------------------
+                0.00    0.00       1/1           FLAC__stream_encoder_new [41]
+[90]     0.0    0.00    0.00       1         FLAC__bitwriter_new [90]
+-----------------------------------------------
+                0.00    0.00       1/1           FLAC__add_metadata_block [67]
+[91]     0.0    0.00    0.00       1         FLAC__bitwriter_write_zeroes [91]
+                0.00    0.00       1/1           bitwriter_grow_ [110]
+-----------------------------------------------
+                0.00    0.00       1/1           init_stream_internal_ [6]
+[92]     0.0    0.00    0.00       1         FLAC__cpu_info [92]
+-----------------------------------------------
+                0.00    0.00       1/1           init_stream_internal_ [6]
+[93]     0.0    0.00    0.00       1         FLAC__format_blocksize_is_subset [93]
+-----------------------------------------------
+                0.00    0.00       1/1           init_stream_internal_ [6]
+[94]     0.0    0.00    0.00       1         FLAC__format_sample_rate_is_subset [94]
+-----------------------------------------------
+                0.00    0.00       1/1           verify_read_callback_ [86]
+[95]     0.0    0.00    0.00       1         FLAC__memory_alloc_aligned_int64_array [95]
+-----------------------------------------------
+                0.00    0.00       1/1           verify_read_callback_ [86]
+[96]     0.0    0.00    0.00       1         FLAC__memory_alloc_aligned_uint64_array [96]
+-----------------------------------------------
+                0.00    0.00       1/1           flac__encode_file [1]
+[97]     0.0    0.00    0.00       1         FLAC__metadata_object_delete [97]
+-----------------------------------------------
+                0.00    0.00       1/1           flac__encode_file [1]
+[98]     0.0    0.00    0.00       1         FLAC__metadata_object_new [98]
+-----------------------------------------------
+                0.00    0.00       1/1           EncoderSession_init_encoder [28]
+[99]     0.0    0.00    0.00       1         FLAC__stream_encoder_disable_constant_subframes [99]
+-----------------------------------------------
+                0.00    0.00       1/1           EncoderSession_init_encoder [28]
+[100]    0.0    0.00    0.00       1         FLAC__stream_encoder_disable_fixed_subframes [100]
+-----------------------------------------------
+                0.00    0.00       1/1           EncoderSession_init_encoder [28]
+[101]    0.0    0.00    0.00       1         FLAC__stream_encoder_disable_instruction_set [101]
+-----------------------------------------------
+                0.00    0.00       1/1           EncoderSession_init_encoder [28]
+[102]    0.0    0.00    0.00       1         FLAC__stream_encoder_disable_verbatim_subframes [102]
+-----------------------------------------------
+                0.00    0.00       1/1           EncoderSession_init_encoder [28]
+[103]    0.0    0.00    0.00       1         FLAC__stream_encoder_set_bits_per_sample [103]
+-----------------------------------------------
+                0.00    0.00       1/1           EncoderSession_init_encoder [28]
+[104]    0.0    0.00    0.00       1         FLAC__stream_encoder_set_channels [104]
+-----------------------------------------------
+                0.00    0.00       1/1           EncoderSession_init_encoder [28]
+[105]    0.0    0.00    0.00       1         FLAC__stream_encoder_set_limit_min_bitrate [105]
+-----------------------------------------------
+                0.00    0.00       1/1           EncoderSession_init_encoder [28]
+[106]    0.0    0.00    0.00       1         FLAC__stream_encoder_set_sample_rate [106]
+-----------------------------------------------
+                0.00    0.00       1/1           EncoderSession_init_encoder [28]
+[107]    0.0    0.00    0.00       1         FLAC__stream_encoder_set_streamable_subset [107]
+-----------------------------------------------
+                0.00    0.00       1/1           EncoderSession_init_encoder [28]
+[108]    0.0    0.00    0.00       1         FLAC__stream_encoder_set_total_samples_estimate [108]
+-----------------------------------------------
+                0.00    0.00       1/1           EncoderSession_init_encoder [28]
+[109]    0.0    0.00    0.00       1         FLAC__stream_encoder_set_verify [109]
+-----------------------------------------------
+                0.00    0.00       1/1           FLAC__bitwriter_write_zeroes [91]
+[110]    0.0    0.00    0.00       1         bitwriter_grow_ [110]
+-----------------------------------------------
+                0.00    0.00       1/1           encode_file [2]
+[111]    0.0    0.00    0.00       1         grabbag__file_are_same [111]
+-----------------------------------------------
+                0.00    0.00       1/1           encode_file [2]
+[112]    0.0    0.00    0.00       1         grabbag__file_copy_metadata [112]
+-----------------------------------------------
+                0.00    0.00       1/1           flac__encode_file [1]
+[113]    0.0    0.00    0.00       1         grabbag__file_get_basename [113]
+-----------------------------------------------
+                0.00    0.00       1/1           encode_file [2]
+[114]    0.0    0.00    0.00       1         grabbag__file_get_filesize [114]
+-----------------------------------------------
+                                   5             read_uint32 [115]
+                0.00    0.00       1/1           flac__encode_file [1]
+[115]    0.0    0.00    0.00       1+5       read_uint32 [115]
+                0.00    0.00       4/4           read_uint16 [70]
+                0.00    0.00       3/3           read_bytes.constprop.23 [71]
+                0.00    0.00       2/2           fskip_ahead [84]
+                0.00    0.00       1/2           flac__utils_printf [83]
+                                   5             read_uint32 [115]
+-----------------------------------------------
+                0.00    0.00       1/1           flac__encode_file [1]
+[116]    0.0    0.00    0.00       1         stats_new_line [116]
+-----------------------------------------------
+
+ This table describes the call tree of the program, and was sorted by
+ the total amount of time spent in each function and its children.
+
+ Each entry in this table consists of several lines.  The line with the
+ index number at the left hand margin lists the current function.
+ The lines above it list the functions that called this function,
+ and the lines below it list the functions this one called.
+ This line lists:
+     index	A unique number given to each element of the table.
+		Index numbers are sorted numerically.
+		The index number is printed next to every function name so
+		it is easier to look up where the function is in the table.
+
+     % time	This is the percentage of the `total' time that was spent
+		in this function and its children.  Note that due to
+		different viewpoints, functions excluded by options, etc,
+		these numbers will NOT add up to 100%.
+
+     self	This is the total amount of time spent in this function.
+
+     children	This is the total amount of time propagated into this
+		function by its children.
+
+     called	This is the number of times the function was called.
+		If the function called itself recursively, the number
+		only includes non-recursive calls, and is followed by
+		a `+' and the number of recursive calls.
+
+     name	The name of the current function.  The index number is
+		printed after it.  If the function is a member of a
+		cycle, the cycle number is printed between the
+		function's name and the index number.
+
+
+ For the function's parents, the fields have the following meanings:
+
+     self	This is the amount of time that was propagated directly
+		from the function into this parent.
+
+     children	This is the amount of time that was propagated from
+		the function's children into this parent.
+
+     called	This is the number of times this parent called the
+		function `/' the total number of times the function
+		was called.  Recursive calls to the function are not
+		included in the number after the `/'.
+
+     name	This is the name of the parent.  The parent's index
+		number is printed after it.  If the parent is a
+		member of a cycle, the cycle number is printed between
+		the name and the index number.
+
+ If the parents of the function cannot be determined, the word
+ `<spontaneous>' is printed in the `name' field, and all the other
+ fields are blank.
+
+ For the function's children, the fields have the following meanings:
+
+     self	This is the amount of time that was propagated directly
+		from the child into the function.
+
+     children	This is the amount of time that was propagated from the
+		child's children to the function.
+
+     called	This is the number of times the function called
+		this child `/' the total number of times the child
+		was called.  Recursive calls by the child are not
+		listed in the number after the `/'.
+
+     name	This is the name of the child.  The child's index
+		number is printed after it.  If the child is a
+		member of a cycle, the cycle number is printed
+		between the name and the index number.
+
+ If there are any cycles (circles) in the call graph, there is an
+ entry for the cycle-as-a-whole.  This entry shows who called the
+ cycle (as parents) and the members of the cycle (as children.)
+ The `+' recursive calls entry shows the number of function calls that
+ were internal to the cycle, and the calls entry for each member shows,
+ for that member, how many times it was called from other members of
+ the cycle.
+
+Copyright (C) 2012-2018 Free Software Foundation, Inc.
+
+Copying and distribution of this file, with or without modification,
+are permitted in any medium without royalty provided the copyright
+notice and this notice are preserved.
+
+Index by function name
+
+  [28] EncoderSession_init_encoder [75] FLAC__format_sample_rate_is_valid [105] FLAC__stream_encoder_set_limit_min_bitrate
+  [11] FLAC__MD5Accumulate    [76] FLAC__format_seektable_is_legal [32] FLAC__stream_encoder_set_metadata
+  [42] FLAC__MD5Final         [77] FLAC__format_seektable_sort [106] FLAC__stream_encoder_set_sample_rate
+  [87] FLAC__MD5Init          [58] FLAC__frame_add_header [107] FLAC__stream_encoder_set_streamable_subset
+  [12] FLAC__MD5Transform     [27] FLAC__lpc_compute_autocorrelation_intrin_sse2_lag_10 [108] FLAC__stream_encoder_set_total_samples_estimate
+  [67] FLAC__add_metadata_block [7] FLAC__lpc_compute_autocorrelation_intrin_sse2_lag_14 [109] FLAC__stream_encoder_set_verify
+  [43] FLAC__bitmath_silog2   [26] FLAC__lpc_compute_best_order [36] FLAC__subframe_add_fixed
+  [50] FLAC__bitwriter_clear  [29] FLAC__lpc_compute_expected_bits_per_residual_sample [15] FLAC__subframe_add_lpc
+  [88] FLAC__bitwriter_delete [19] FLAC__lpc_compute_lp_coefficients [80] FLAC__window_tukey
+  [51] FLAC__bitwriter_get_buffer [8] FLAC__lpc_compute_residual_from_qlp_coefficients_16_intrin_avx2 [14] add_residual_partitioned_rice_
+  [66] FLAC__bitwriter_get_input_bits_unconsumed [10] FLAC__lpc_compute_residual_from_qlp_coefficients_intrin_avx2 [110] bitwriter_grow_
+  [21] FLAC__bitwriter_get_write_crc16 [46] FLAC__lpc_max_prediction_before_shift_bps [59] encoder_progress_callback
+  [53] FLAC__bitwriter_get_write_crc8 [47] FLAC__lpc_max_residual_bps [69] file_seek_callback_
+  [89] FLAC__bitwriter_init   [23] FLAC__lpc_quantize_coefficients [61] file_tell_callback_
+  [90] FLAC__bitwriter_new    [24] FLAC__lpc_window_data   [9] file_write_callback_
+  [52] FLAC__bitwriter_release_buffer [13] FLAC__lpc_window_data_partial [1] flac__encode_file
+  [73] FLAC__bitwriter_write_byte_block [65] FLAC__memory_alloc_aligned_int32_array [81] flac__utils_canonicalize_skip_until_specification
+  [48] FLAC__bitwriter_write_raw_int32 [95] FLAC__memory_alloc_aligned_int64_array [82] flac__utils_parse_skip_until_specification
+  [49] FLAC__bitwriter_write_raw_int64 [78] FLAC__memory_alloc_aligned_real_array [83] flac__utils_printf
+  [44] FLAC__bitwriter_write_raw_uint32 [96] FLAC__memory_alloc_aligned_uint64_array [20] format_input.constprop.21
+  [74] FLAC__bitwriter_write_raw_uint32_little_endian [97] FLAC__metadata_object_delete [84] fskip_ahead
+  [60] FLAC__bitwriter_write_raw_uint64 [98] FLAC__metadata_object_new [111] grabbag__file_are_same
+  [16] FLAC__bitwriter_write_rice_signed_block [31] FLAC__metadata_object_seektable_resize_points [112] grabbag__file_copy_metadata
+  [54] FLAC__bitwriter_write_utf8_uint32 [34] FLAC__metadata_object_seektable_template_append_spaced_points_by_samples [113] grabbag__file_get_basename
+  [91] FLAC__bitwriter_write_zeroes [35] FLAC__metadata_object_seektable_template_sort [114] grabbag__file_get_filesize
+  [55] FLAC__bitwriter_zero_pad_to_byte_boundary [17] FLAC__precompute_partition_info_sums_intrin_avx2 [33] grabbag__seektable_convert_specification_to_template
+  [92] FLAC__cpu_info         [38] FLAC__stream_encoder_delete [6] init_stream_internal_
+  [22] FLAC__crc16            [99] FLAC__stream_encoder_disable_constant_subframes [4] process_frame_
+  [56] FLAC__crc8            [100] FLAC__stream_encoder_disable_fixed_subframes [5] process_subframes_
+  [68] FLAC__fixed_compute_best_predictor_intrin_ssse3 [101] FLAC__stream_encoder_disable_instruction_set [71] read_bytes.constprop.23
+  [18] FLAC__fixed_compute_best_predictor_wide_intrin_avx2 [102] FLAC__stream_encoder_disable_verbatim_subframes [70] read_uint16
+  [25] FLAC__fixed_compute_residual [37] FLAC__stream_encoder_finish [115] read_uint32
+  [93] FLAC__format_blocksize_is_subset [79] FLAC__stream_encoder_get_state [30] safe_malloc_mul_2op_p
+  [62] FLAC__format_entropy_coding_method_partitioned_rice_contents_clear [39] FLAC__stream_encoder_init_file [85] set_defaults_
+  [64] FLAC__format_entropy_coding_method_partitioned_rice_contents_ensure_size [41] FLAC__stream_encoder_new [72] static_metadata_append
+  [63] FLAC__format_entropy_coding_method_partitioned_rice_contents_init [3] FLAC__stream_encoder_process [116] stats_new_line
+  [57] FLAC__format_get_max_rice_partition_order_from_blocksize [103] FLAC__stream_encoder_set_bits_per_sample [86] verify_read_callback_
+  [45] FLAC__format_get_max_rice_partition_order_from_blocksize_limited_max_and_predictor_order [104] FLAC__stream_encoder_set_channels
+  [94] FLAC__format_sample_rate_is_subset [40] FLAC__stream_encoder_set_compression_level
