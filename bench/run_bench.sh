@@ -246,6 +246,7 @@ run_one() {
   local encoded_bytes=""
   if [[ -f "${output}" ]]; then
     encoded_bytes="$(stat -c '%s' "${output}")"
+    rm -f "${output}"
   fi
 
   local now host label cmd_str
@@ -272,7 +273,7 @@ run_variant_matrix() {
 
   [[ -x "${flac_bin}" ]] || die "Missing flac binary for variant ${variant}: ${flac_bin}"
 
-  local masks=(127 125 121 113 49 17 1)
+  local masks=(127 125 121 113 49 33 1)
   if [[ "${with_asm}" != "ON" ]]; then
     masks=(127)
   elif [[ "${with_avx}" != "ON" ]]; then
