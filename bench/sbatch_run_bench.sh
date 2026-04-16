@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #SBATCH --job-name=flac-bench
-#SBATCH --time=06:00:00
+#SBATCH --time=48:00:00
 #SBATCH --output=flac-bench-%j.out
 #SBATCH --error=flac-bench-%j.err
 #SBATCH --ntasks=1
