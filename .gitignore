@@ -119,3 +119,4 @@ devenv.local.yaml
 !/bench/README.md
 !/bench/run_bench.sh
 !/bench/analyze.py
+!/bench/sbatch_run_bench.sh
