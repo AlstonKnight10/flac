@@ -43,7 +43,7 @@ For `full`:
 - `121` SSE2 + SSSE3
 - `113` + SSE4.1
 - `49` + SSE4.2
-- `17` + AVX2 (FMA disabled)
+- `33` + AVX2 (FMA disabled)
 - `1` + FMA
 
 For `asm_noavx`, AVX2/FMA masks are omitted.
