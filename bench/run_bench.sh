@@ -7,10 +7,10 @@ RESULTS_DIR="${BENCH_DIR}/results"
 BUILD_ROOT="${BENCH_DIR}/build"
 CORPUS_DIR="${BENCH_DIR}/corpus"
 
-RUNS=10
-WARMUPS=1
+RUNS=1
+WARMUPS=0
 PRESETS="8"
-THREADS_LIST="1 2 4 8 16 32"
+THREADS_LIST="8"
 TASKSET_CPU=""
 OUT_DIR="${BENCH_DIR}/tmp_out"
 USE_PERF=0
@@ -162,8 +162,13 @@ mask_label() {
   case "$1" in
     127) echo "all_disabled" ;;
     125) echo "sse2_only" ;;
+    123) echo "ssse3_only" ;;
     121) echo "sse2_ssse3" ;;
+    119) echo "sse4_only" ;;
     113) echo "plus_sse41" ;;
+    111) echo "avx2_only" ;;
+    95)  echo "fma_only" ;;
+    63)  echo "sse42_only" ;;
     49)  echo "plus_sse42" ;;
     33)  echo "plus_avx2" ;;
     1)   echo "plus_fma" ;;
@@ -273,12 +278,7 @@ run_variant_matrix() {
 
   [[ -x "${flac_bin}" ]] || die "Missing flac binary for variant ${variant}: ${flac_bin}"
 
-  local masks=(127 125 121 113 49 33 1)
-  if [[ "${with_asm}" != "ON" ]]; then
-    masks=(127)
-  elif [[ "${with_avx}" != "ON" ]]; then
-    masks=(127 125 121 113 49)
-  fi
+  local masks=(127 125 123 119 111 95 63)
 
   local preset mask input run threads
   for preset in ${PRESETS}; do
@@ -302,6 +302,8 @@ main() {
   parse_args "$@"
 
   have_cmd cmake || die "cmake not found"
+  have_cmd wget || die "wget not found"
+
   if TIME_BIN="$(type -P gtime)" && [[ -n "${TIME_BIN}" ]]; then
     :
   elif TIME_BIN="$(type -P time)" && [[ -n "${TIME_BIN}" ]]; then
@@ -309,9 +311,11 @@ main() {
   else
     die "GNU time not found (checked gtime/time in PATH)"
   fi
+
   if [[ -n "${TASKSET_CPU}" ]]; then
     have_cmd taskset || die "taskset requested but not found"
   fi
+
   if [[ "${USE_PERF}" -eq 1 ]]; then
     have_cmd perf || die "--use-perf requested but perf not found"
   fi
@@ -329,12 +333,30 @@ main() {
     fi
   fi
 
-  mkdir -p "${RESULTS_DIR}" "${BUILD_ROOT}" "${OUT_DIR}"
-  list_inputs >/dev/null
+  mkdir -p "${RESULTS_DIR}" "${BUILD_ROOT}" "${OUT_DIR}" "${CORPUS_DIR}"
+
+  if [[ ! -f "${CORPUS_DIR}/special_dj_mix.flac" ]]; then
+    wget -O "${CORPUS_DIR}/special_dj_mix.flac" \
+      "https://link.storjshare.io/raw/jx4ail3mgdene32efmvv4nzrjffq/bulk-data/Jellyfin%20Media%2FMusic%2FMEGAREX%2FSPD%20GAR%2FDisc%202/01%20Special%20DJ%20Mix.flac"
+  fi
+
+  if [[ ! -f "${CORPUS_DIR}/white_noise_stereo_independent.flac" ]]; then
+    wget -O "${CORPUS_DIR}/white_noise_stereo_independent.flac" \
+      "https://link.storjshare.io/raw/jwhksbn7nlh6hodbucfbp3vnfqca/bulk-data/white_noise_stereo_independent.flac"
+  fi
 
   write_headers
 
   build_variant "noasm" "OFF" "OFF"
+
+  if [[ ! -f "${CORPUS_DIR}/special_dj_mix.wav" ]]; then
+    "${BUILD_ROOT}/noasm/src/flac/flac" -d -f \
+      -o "${CORPUS_DIR}/special_dj_mix.wav" \
+      "${CORPUS_DIR}/special_dj_mix.flac"
+  fi
+
+  list_inputs >/dev/null
+
   build_variant "asm_noavx" "ON" "OFF"
   build_variant "full" "ON" "ON"
 
