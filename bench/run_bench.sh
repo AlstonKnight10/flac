@@ -355,6 +355,12 @@ main() {
       "${CORPUS_DIR}/special_dj_mix.flac"
   fi
 
+  if [[ ! -f "${CORPUS_DIR}/white_noise_stereo_independent.wav" ]]; then
+    "${BUILD_ROOT}/noasm/src/flac/flac" -d -f \
+      -o "${CORPUS_DIR}/white_noise_stereo_independent.wav" \
+      "${CORPUS_DIR}/white_noise_stereo_independent.flac"
+  fi
+
   list_inputs >/dev/null
 
   build_variant "asm_noavx" "ON" "OFF"
